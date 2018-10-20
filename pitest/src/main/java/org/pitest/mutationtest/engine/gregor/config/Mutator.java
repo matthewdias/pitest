@@ -54,6 +54,26 @@ import org.pitest.mutationtest.engine.gregor.mutators.experimental.NakedReceiver
 import org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveIncrementsMutator;
 import org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveSwitchMutator;
 import org.pitest.mutationtest.engine.gregor.mutators.experimental.SwitchMutator;
+import org.pitest.mutationtest.engine.gregor.mutators.extended.ROR.ReplaceIFICMPLTMutator;
+import org.pitest.mutationtest.engine.gregor.mutators.extended.ROR.ReplaceIFICMPGTMutator;
+import org.pitest.mutationtest.engine.gregor.mutators.extended.ROR.ReplaceIFICMPLEMutator;
+import org.pitest.mutationtest.engine.gregor.mutators.extended.ROR.ReplaceIFICMPGEMutator;
+import org.pitest.mutationtest.engine.gregor.mutators.extended.ROR.ReplaceIFICMPEQMutator;
+import org.pitest.mutationtest.engine.gregor.mutators.extended.ROR.ReplaceIFICMPNEMutator;
+import org.pitest.mutationtest.engine.gregor.mutators.extended.ROR.ReplaceIFLTMutator;
+import org.pitest.mutationtest.engine.gregor.mutators.extended.ROR.ReplaceIFGTMutator;
+import org.pitest.mutationtest.engine.gregor.mutators.extended.ROR.ReplaceIFLEMutator;
+import org.pitest.mutationtest.engine.gregor.mutators.extended.ROR.ReplaceIFGEMutator;
+import org.pitest.mutationtest.engine.gregor.mutators.extended.ROR.ReplaceIFEQMutator;
+import org.pitest.mutationtest.engine.gregor.mutators.extended.ROR.ReplaceIFNEMutator;
+import org.pitest.mutationtest.engine.gregor.mutators.extended.ROR.ReplaceIFACMPMutator;
+import org.pitest.mutationtest.engine.gregor.mutators.extended.AOR.ReplaceAddMutator;
+import org.pitest.mutationtest.engine.gregor.mutators.extended.AOR.ReplaceSubMutator;
+import org.pitest.mutationtest.engine.gregor.mutators.extended.AOR.ReplaceMulMutator;
+import org.pitest.mutationtest.engine.gregor.mutators.extended.AOR.ReplaceDivMutator;
+import org.pitest.mutationtest.engine.gregor.mutators.extended.AOR.ReplaceRemMutator;
+import org.pitest.mutationtest.engine.gregor.mutators.extended.AOD.RemoveLeftMathOpMutator;
+import org.pitest.mutationtest.engine.gregor.mutators.extended.AOD.RemoveRightMathOpMutator;
 
 public final class Mutator {
 
@@ -141,6 +161,29 @@ public final class Mutator {
         Choice.ORDER, false));
     addGroup("REMOVE_CONDITIONALS", RemoveConditionalMutator.makeMutators());
 
+    add("REPLACE_IFICMPLT", ReplaceIFICMPLTMutator.REPLACE_IFICMPLT_MUTATOR);
+    add("REPLACE_IFICMPGT", ReplaceIFICMPGTMutator.REPLACE_IFICMPGT_MUTATOR);
+    add("REPLACE_IFICMPLE", ReplaceIFICMPLEMutator.REPLACE_IFICMPLE_MUTATOR);
+    add("REPLACE_IFICMPGE", ReplaceIFICMPGEMutator.REPLACE_IFICMPGE_MUTATOR);
+    add("REPLACE_IFICMPEQ", ReplaceIFICMPEQMutator.REPLACE_IFICMPEQ_MUTATOR);
+    add("REPLACE_IFICMPNE", ReplaceIFICMPNEMutator.REPLACE_IFICMPNE_MUTATOR);
+    add("REPLACE_IFLT", ReplaceIFLTMutator.REPLACE_IFLT_MUTATOR);
+    add("REPLACE_IFGT", ReplaceIFGTMutator.REPLACE_IFGT_MUTATOR);
+    add("REPLACE_IFLE", ReplaceIFLEMutator.REPLACE_IFLE_MUTATOR);
+    add("REPLACE_IFGE", ReplaceIFGEMutator.REPLACE_IFGE_MUTATOR);
+    add("REPLACE_IFEQ", ReplaceIFEQMutator.REPLACE_IFEQ_MUTATOR);
+    add("REPLACE_IFNE", ReplaceIFNEMutator.REPLACE_IFNE_MUTATOR);
+    add("REPLACE_IFACMP", ReplaceIFACMPMutator.REPLACE_IFACMP_MUTATOR);
+
+    add("REPLACE_ADD", ReplaceAddMutator.REPLACE_ADD_MUTATOR);
+    add("REPLACE_SUB", ReplaceSubMutator.REPLACE_SUB_MUTATOR);
+    add("REPLACE_MUL", ReplaceMulMutator.REPLACE_MUL_MUTATOR);
+    add("REPLACE_DIV", ReplaceDivMutator.REPLACE_DIV_MUTATOR);
+    add("REPLACE_REM", ReplaceRemMutator.REPLACE_REM_MUTATOR);
+
+    add("REMOVE_LEFT_MATH_OP", new RemoveLeftMathOpMutator());
+    add("REMOVE_RIGHT_MATH_OP", new RemoveRightMathOpMutator());
+
     add("TRUE_RETURNS", BooleanTrueReturnValsMutator.BOOLEAN_TRUE_RETURN);
     add("FALSE_RETURNS", BooleanFalseReturnValsMutator.BOOLEAN_FALSE_RETURN);
     add("PRIMITIVE_RETURNS", PrimitiveReturnsMutator.PRIMITIVE_RETURN_VALS_MUTATOR);
@@ -171,7 +214,7 @@ public final class Mutator {
      * Experimental mutator that replaces method call with this
      */
     add("EXPERIMENTAL_NAKED_RECEIVER", NakedReceiverMutator.NAKED_RECEIVER);
-    
+
     /**
      * Experimental mutator that swaps big integer methods
      */
