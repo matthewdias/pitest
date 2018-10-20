@@ -1,3 +1,7 @@
+# Attention TA
+
+Our augmented tool is on the `extended` branch located [here](https://github.com/matthewdias/pitest/tree/extended)
+
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.pitest/pitest/badge.svg?style=flat)](https://maven-badges.herokuapp.com/maven-central/org.pitest/pitest)
 [![Build Status](https://travis-ci.org/hcoles/pitest.png?branch=master)](https://travis-ci.org/hcoles/pitest)
 
@@ -8,7 +12,7 @@ Read all about it at http://pitest.org
 ## Releases
 
 ### 1.4.4-SNAPSHOT
- 
+
 * #518 - Experimental BigInteger mutator (thanks @ripdajacker)
 * #513 - Sort mutators in html report (thanks @ThLeu)
 
@@ -36,7 +40,7 @@ Read all about it at http://pitest.org
 * #445 - Raise minimum supported java version to 8
 * Switch to ASM 6.1.1
 * #448 Aggregate report based on module (thanks @sarahBuisson)
-* #462 Escape test names in coverage xml (thanks @maxgabut) 
+* #462 Escape test names in coverage xml (thanks @maxgabut)
 
 ### 1.3.2
 
@@ -71,7 +75,7 @@ As a result of 429 TestNG tests will no longer be automatically detected - the n
 * #407 - SCM goal cannot be run from within module (thanks @sbuisson)
 * #256 - Inline style violate Content Security Policy (thanks @kiftio)
 * #403 - No css in the html report viewed from jenkins (thanks @kiftio)
-* #409 - Mutate based on changes across branched (thanks @sbuisson) 
+* #409 - Mutate based on changes across branched (thanks @sbuisson)
 * #418 - Avoid for loop increments
 * #424 - Avoid for each code
 * #389 - Widen matching of implicit null checks
@@ -102,7 +106,7 @@ As a result of 429 TestNG tests will no longer be automatically detected - the n
 * #364 - Filter infinite loops via static analysis
 * #365 - Configuration system for plugins
 
-(Note #347 will **not** detect `javax.annotaion.Generated` as it has only source retention.) 
+(Note #347 will **not** detect `javax.annotaion.Generated` as it has only source retention.)
 
 ### 1.2.0
 
@@ -150,9 +154,9 @@ Note - as of this release the maven plugin will automatically determine which cl
 
 ### 1.1.6
 
-* #10  - Add maven report goal (thanks jasonmfehr) 
+* #10  - Add maven report goal (thanks jasonmfehr)
 * #184 - Remove undocumented project file feature
-* #219 - Performance improvement for report generation (thanks tobiasbaum) 
+* #219 - Performance improvement for report generation (thanks tobiasbaum)
 * #190 - Allow custom properties for plugins
 
 Note this release contains a known issue (#231). Please upgrade.
@@ -161,7 +165,7 @@ Note this release contains a known issue (#231). Please upgrade.
 
 * Fix for #148 - Stackoverflow with TestNG data providers when using JMockit
 * Fix for #56 - Not reporting junit incompatibilities
-* Fix for #174 - Invalid linecoverage.xml with static initializers 
+* Fix for #174 - Invalid linecoverage.xml with static initializers
 * Fix for #183 - Can't run GWTMockito tests
 * Fix for #179 - Broken `includeLaunchClasspath=false` on Windows
 * #173 - Read exclusions and groups from maven surefire config
@@ -189,7 +193,7 @@ Note this release contains a known issue (#231). Please upgrade.
 * Block based coverage (fixes 79/131)
 * End support for running on Java 5 (java 5 bytecode still supported)
 * Skip flag for maven modules (#106)
-* Stop declaring TestNG as a dependency 
+* Stop declaring TestNG as a dependency
 * New parameter propagation mutator (thanks UrsMetz)
 
 ### 1.1.0
@@ -215,7 +219,7 @@ Please note that any stored history files or sonar results are invalidated by th
 ### 0.33
 
 * Move to Github
-* Upgrade of ASM to support Java 8 bytecode (thanks to "iirekm") 
+* Upgrade of ASM to support Java 8 bytecode (thanks to "iirekm")
 * Partial support for JUnit categories (thanks to "chrisr")
 * New Remove Increments Mutator (thanks to Rahul Gopinath)
 * Minor logging improvements (thanks to Kyle Rogers aka Stephan Penndorf)
@@ -229,7 +233,7 @@ Please note that any stored history files or sonar results are invalidated by th
 * support for mutating static initializers with TestNG
 * properly isolate classpaths when running via Ant
 * break builds on coverage threshold
-* allow JVM to be specified 
+* allow JVM to be specified
 * support user defined test selection strategies
 * support user defined output format
 * support user defined test prioritisation
@@ -248,7 +252,7 @@ integrate with PIT.
 
 Mutations are now scoped internally as described in [https://groups.google.com/forum/#!topic/pitusers/E0-3QZuMYjE](https://groups.google.com/forum/#!topic/pitusers/E0-3QZuMYjE)
 
-A new class (org.pitest.mutationtest.tooling.EntryPoint) has been introduced that removes some of the duplication that existed in the various ways of launching mutation analysis. 
+A new class (org.pitest.mutationtest.tooling.EntryPoint) has been introduced that removes some of the duplication that existed in the various ways of launching mutation analysis.
 
 ### 0.30
 
@@ -310,11 +314,11 @@ byte code to earlier versions.
 ### 0.26
 
 * Ant support
-* New experimental mutator for member variables 
+* New experimental mutator for member variables
 * Fix for #12 #27 - no longer hangs when code under test launches non daemon threads
 * Fix for #26 - now warns when no test library found on classpath
 * Fix for #30 - now errors if mutated classes have no line or source debug
-* Fix for #32 - now correctly handles of JUnit assumptions 
+* Fix for #32 - now correctly handles of JUnit assumptions
 
 **Known issue** - The new member variable mutator may cause errors in synchronized errors. The mutator is
 however disabled by default, and the generated errors are correctly handled by PIT.
@@ -382,14 +386,14 @@ however disabled by default, and the generated errors are correctly handled by P
 
 ## Credits
 
-Pitest is mainly the work of [me](https://twitter.com/0hjc) but has benefited from contributions from many others. 
+Pitest is mainly the work of [me](https://twitter.com/0hjc) but has benefited from contributions from many others.
 
-Notable contributions not visible [here](https://github.com/hcoles/pitest/graphs/contributors) as they were made before this code was migrated to github include 
+Notable contributions not visible [here](https://github.com/hcoles/pitest/graphs/contributors) as they were made before this code was migrated to github include
 
 * Nicolas Rusconi - Ant Task
 * Struan Kerr-Liddell - Improvements to html report
 * Stephan Pendorf - Multiple improvments including improved mutators
- 
+
 Although PIT does not incorporate any code from the Jumble project (http://jumble.sourceforge.net/), the Jumble codebase was used as a guide when developing some aspects of PIT.
 
 ## Other stuff
@@ -399,5 +403,3 @@ The codebase is checked up on in a few places that give slower feedback than the
 [maven2 on IBM JDK check](https://hjc.ci.cloudbees.com/job/maven2_triangle_example/)
 
 [Sonarqube analysis](http://nemo.sonarqube.org/dashboard/index/793182)
-
-
