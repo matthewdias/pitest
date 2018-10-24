@@ -1,0 +1,1598 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>SLF4JHandler.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package edu.stanford.nlp.util.logging;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import edu.stanford.nlp.util.Pair;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.slf4j.*;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.Collections;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.List;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * A handler for outputting to SLF4J rather than stderr.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * @author Gabor Angeli</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>@SuppressWarnings(&#34;unused&#34;)  // Called via reflection from RedwoodConfiguration</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>public class SLF4JHandler extends OutputHandler {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  private static Pair&#60;Logger, Redwood.Flag&#62; getLoggerAndLevel(Object[] channel) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    Pair&#60;String, Redwood.Flag&#62; pair = getSourceStringAndLevel(channel);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    // Get the logger for slf4j</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    Logger impl = LoggerFactory.getLogger(pair.first());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_21'/>
+21
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_21'>1</a>
+<span>
+1. getLoggerAndLevel : mutated return of Object value for edu/stanford/nlp/util/logging/SLF4JHandler::getLoggerAndLevel to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    return Pair.makePair(impl, pair.second());</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   * Override the raw handle method, as potentially we are dropping log levels in SLF4J</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   * and we do not want to render the resulting message.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   * @param record The record to handle.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_29'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   * @return Nothing -- this is the leaf of a tree.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_31'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  @SuppressWarnings(&#34;unchecked&#34;)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_32'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_33'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  public List&#60;Redwood.Record&#62; handle(Redwood.Record record) {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_34'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    // Get the implementing SLF4J logger</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_35'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    Pair&#60;Logger, Redwood.Flag&#62; loggerAndLevel = getLoggerAndLevel(record.channels());</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_36'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_37'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    // Potentially short-circuit</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_38'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    switch (loggerAndLevel.second) {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_39'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>      case FORCE:</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_40'/>
+40
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_40'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        break;  // Always pass it on if explicitly forced</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_41'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>      case ERROR:</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_42'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        if (!loggerAndLevel.first.isErrorEnabled()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_43'/>
+43
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_43'>1</a>
+<span>
+1. handle : mutated return of Object value for edu/stanford/nlp/util/logging/SLF4JHandler::handle to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>          return Collections.emptyList();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_44'/>
+44
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_44'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_45'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        break;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_46'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>      case WARN:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_47'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        if (!loggerAndLevel.first.isWarnEnabled()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_48'/>
+48
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_48'>1</a>
+<span>
+1. handle : mutated return of Object value for edu/stanford/nlp/util/logging/SLF4JHandler::handle to ( if (x != null) null else throw new RuntimeException ) &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>          return Collections.emptyList();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_49'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_50'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        break;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_51'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>      case DEBUG:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_52'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        if (!loggerAndLevel.first.isDebugEnabled()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_53'/>
+53
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_53'>1</a>
+<span>
+1. handle : mutated return of Object value for edu/stanford/nlp/util/logging/SLF4JHandler::handle to ( if (x != null) null else throw new RuntimeException ) &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>          return Collections.emptyList();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_54'/>
+54
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_54'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_55'/>
+55
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_55'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        break;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_56'/>
+56
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_56'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>      default:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_57'/>
+57
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_57'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        if (!loggerAndLevel.first.isInfoEnabled()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_58'/>
+58
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_58'>1</a>
+<span>
+1. handle : mutated return of Object value for edu/stanford/nlp/util/logging/SLF4JHandler::handle to ( if (x != null) null else throw new RuntimeException ) &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>          return Collections.emptyList();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_59'/>
+59
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_59'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_60'/>
+60
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_60'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        break;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_61'/>
+61
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_61'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_62'/>
+62
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_62'>1</a>
+<span>
+1. handle : mutated return of Object value for edu/stanford/nlp/util/logging/SLF4JHandler::handle to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>    return super.handle(record);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_63'/>
+63
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_63'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_64'/>
+64
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_64'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_65'/>
+65
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_65'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_66'/>
+66
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_66'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  public void print(Object[] channel, String line) {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_67'/>
+67
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_67'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    // Get the implementing SLF4J logger</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_68'/>
+68
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_68'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    Pair&#60;Logger, Redwood.Flag&#62; loggerAndLevel = getLoggerAndLevel(channel);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_69'/>
+69
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_69'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_70'/>
+70
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_70'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    // Format the line</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_71'/>
+71
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_71'>4</a>
+<span>
+1. print : changed conditional boundary &rarr; SURVIVED<br/>
+2. print : negated conditional &rarr; SURVIVED<br/>
+3. print : negated conditional &rarr; SURVIVED<br/>
+4. print : Replaced integer subtraction with addition &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>    if (line.length() &#62; 0 &#38;&#38; line.charAt(line.length() - 1) == &#39;\n&#39;) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_72'/>
+72
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_72'>1</a>
+<span>
+1. print : Replaced integer subtraction with addition &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      line = line.substring(0, line.length() - 1);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_73'/>
+73
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_73'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_74'/>
+74
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_74'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_75'/>
+75
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_75'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    // Route the signal</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_76'/>
+76
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_76'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    switch (loggerAndLevel.second) {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_77'/>
+77
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_77'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>      case ERROR:</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_78'/>
+78
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_78'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        loggerAndLevel.first.error(line);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_79'/>
+79
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_79'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        break;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_80'/>
+80
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_80'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>      case WARN:</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_81'/>
+81
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_81'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        loggerAndLevel.first.warn(line);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_82'/>
+82
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_82'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        break;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_83'/>
+83
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_83'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>      case DEBUG:</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_84'/>
+84
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_84'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        loggerAndLevel.first.debug(line);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_85'/>
+85
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_85'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        break;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_86'/>
+86
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_86'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>      case STDOUT:</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_87'/>
+87
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_87'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>      case STDERR:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_88'/>
+88
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_88'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        loggerAndLevel.first.info(line);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_89'/>
+89
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_89'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        break;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_90'/>
+90
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_90'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>      case FORCE:</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_91'/>
+91
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_91'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        throw new IllegalStateException(&#34;Should not reach this switch case&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_92'/>
+92
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_92'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>      default:</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_93'/>
+93
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_93'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        throw new IllegalStateException(&#34;Unknown Redwood flag for slf4j integration: &#34; + loggerAndLevel.second);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_94'/>
+94
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_94'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_95'/>
+95
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_95'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_96'/>
+96
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_96'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2a293dcd_97'/>
+97
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_97'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2a293dcd_21'>21</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_21'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getLoggerAndLevel<br/><b>Killed by : </b>edu.stanford.nlp.pipeline.AnnotatorPoolTest.testSignature(edu.stanford.nlp.pipeline.AnnotatorPoolTest)</span></span> mutated return of Object value for edu/stanford/nlp/util/logging/SLF4JHandler::getLoggerAndLevel to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2a293dcd_43'>43</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_43'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>handle<br/><b>Killed by : </b>none</span></span> mutated return of Object value for edu/stanford/nlp/util/logging/SLF4JHandler::handle to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2a293dcd_48'>48</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_48'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>handle<br/><b>Killed by : </b>none</span></span> mutated return of Object value for edu/stanford/nlp/util/logging/SLF4JHandler::handle to ( if (x != null) null else throw new RuntimeException ) &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2a293dcd_53'>53</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_53'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>handle<br/><b>Killed by : </b>none</span></span> mutated return of Object value for edu/stanford/nlp/util/logging/SLF4JHandler::handle to ( if (x != null) null else throw new RuntimeException ) &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2a293dcd_58'>58</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_58'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>handle<br/><b>Killed by : </b>none</span></span> mutated return of Object value for edu/stanford/nlp/util/logging/SLF4JHandler::handle to ( if (x != null) null else throw new RuntimeException ) &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2a293dcd_62'>62</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_62'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>handle<br/><b>Killed by : </b>none</span></span> mutated return of Object value for edu/stanford/nlp/util/logging/SLF4JHandler::handle to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2a293dcd_71'>71</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_71'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>print<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>print<br/><b>Killed by : </b>edu.stanford.nlp.util.FileBackedCacheTest.testMerge(edu.stanford.nlp.util.FileBackedCacheTest)</span></span> Replaced integer subtraction with addition &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>print<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>print<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2a293dcd_72'>72</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2a293dcd_72'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>print<br/><b>Killed by : </b>edu.stanford.nlp.util.FileBackedCacheTest.testMerge(edu.stanford.nlp.util.FileBackedCacheTest)</span></span> Replaced integer subtraction with addition &rarr; KILLED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+<li class='mutator'>MATH_MUTATOR</li>
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+<li class='mutator'>RETURN_VALS_MUTATOR</li>
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>edu.stanford.nlp.process.WordToSentenceProcessorTest.testExclamationPoint(edu.stanford.nlp.process.WordToSentenceProcessorTest) (1 ms)</li><li>edu.stanford.nlp.process.PTBTokenizerTest.testCorp(edu.stanford.nlp.process.PTBTokenizerTest) (6 ms)</li><li>edu.stanford.nlp.pipeline.ChunkAnnotationUtilsTest.testMergeChunks(edu.stanford.nlp.pipeline.ChunkAnnotationUtilsTest) (2 ms)</li><li>edu.stanford.nlp.simple.DocumentTest.testSentences(edu.stanford.nlp.simple.DocumentTest) (8 ms)</li><li>edu.stanford.nlp.process.PTBTokenizerTest.testHyphensQuoteAndBOM(edu.stanford.nlp.process.PTBTokenizerTest) (9 ms)</li><li>edu.stanford.nlp.simple.SentenceTest.testBasicTokenization(edu.stanford.nlp.simple.SentenceTest) (4 ms)</li><li>edu.stanford.nlp.process.WordToSentenceProcessorTest.testXmlElements(edu.stanford.nlp.process.WordToSentenceProcessorTest) (6 ms)</li><li>edu.stanford.nlp.simple.SentenceTest.testWeirdTokens(edu.stanford.nlp.simple.SentenceTest) (19 ms)</li><li>edu.stanford.nlp.loglinear.inference.CliqueTreeTest.testCalculateMap(edu.stanford.nlp.loglinear.inference.CliqueTreeTest) (5405 ms)</li><li>edu.stanford.nlp.pipeline.CleanXmlAnnotatorTest.testInvertible(edu.stanford.nlp.pipeline.CleanXmlAnnotatorTest) (3 ms)</li><li>edu.stanford.nlp.simple.SentenceTest.testFromCoreMapCrashCheck(edu.stanford.nlp.simple.SentenceTest) (3 ms)</li><li>edu.stanford.nlp.process.DocumentPreprocessorTest.testXMLBasic(edu.stanford.nlp.process.DocumentPreprocessorTest) (6 ms)</li><li>edu.stanford.nlp.process.PTBTokenizerTest.testFractions(edu.stanford.nlp.process.PTBTokenizerTest) (2 ms)</li><li>edu.stanford.nlp.process.WordToSentenceProcessorTest.testChinese(edu.stanford.nlp.process.WordToSentenceProcessorTest) (2 ms)</li><li>edu.stanford.nlp.optimization.MinimizerTest.testQNMinimizerRosenbrock(edu.stanford.nlp.optimization.MinimizerTest) (8 ms)</li><li>edu.stanford.nlp.pipeline.TokenizerAnnotatorTest.testHyphens(edu.stanford.nlp.pipeline.TokenizerAnnotatorTest) (10 ms)</li><li>edu.stanford.nlp.pipeline.TokenizerAnnotatorTest.testNewVersion(edu.stanford.nlp.pipeline.TokenizerAnnotatorTest) (2 ms)</li><li>edu.stanford.nlp.pipeline.CleanXmlAnnotatorTest.testNestedTags(edu.stanford.nlp.pipeline.CleanXmlAnnotatorTest) (5 ms)</li><li>edu.stanford.nlp.process.WordToSentenceProcessorTest.testParagraphSeparator(edu.stanford.nlp.process.WordToSentenceProcessorTest) (2 ms)</li><li>edu.stanford.nlp.process.PTBTokenizerTest.testPTBTokenizerGerman(edu.stanford.nlp.process.PTBTokenizerTest) (2 ms)</li><li>edu.stanford.nlp.pipeline.CoNLLOutputterTest.testSimpleSentence(edu.stanford.nlp.pipeline.CoNLLOutputterTest) (3 ms)</li><li>edu.stanford.nlp.process.DocumentPreprocessorTest.testNearFinalPunctuation(edu.stanford.nlp.process.DocumentPreprocessorTest) (10 ms)</li><li>edu.stanford.nlp.process.DocumentPreprocessorTest.testNearFinalPunctuation2(edu.stanford.nlp.process.DocumentPreprocessorTest) (1 ms)</li><li>edu.stanford.nlp.process.PTBTokenizerTest.testInvertible(edu.stanford.nlp.process.PTBTokenizerTest) (2 ms)</li><li>edu.stanford.nlp.simple.SentenceTest.testLength(edu.stanford.nlp.simple.SentenceTest) (2 ms)</li><li>edu.stanford.nlp.classify.DatasetTest.testDataset(edu.stanford.nlp.classify.DatasetTest) (80 ms)</li><li>edu.stanford.nlp.process.DocumentPreprocessorTest.testSetSentencePunctWords(edu.stanford.nlp.process.DocumentPreprocessorTest) (1 ms)</li><li>edu.stanford.nlp.process.WordToSentenceProcessorTest.testParagraphStrategies(edu.stanford.nlp.process.WordToSentenceProcessorTest) (10 ms)</li><li>edu.stanford.nlp.patterns.CreatePatternsTest.test(edu.stanford.nlp.patterns.CreatePatternsTest) (148 ms)</li><li>edu.stanford.nlp.process.WordToSentenceProcessorTest.testNullSplitter(edu.stanford.nlp.process.WordToSentenceProcessorTest) (1 ms)</li><li>edu.stanford.nlp.ie.pascal.ISODateInstanceTest.testDateNormalization(edu.stanford.nlp.ie.pascal.ISODateInstanceTest) (19 ms)</li><li>edu.stanford.nlp.ling.SentenceTest.testTokenizedSentenceSize(edu.stanford.nlp.ling.SentenceTest) (82 ms)</li><li>edu.stanford.nlp.process.PTBTokenizerTest.testPTBTokenizerCoreLabel(edu.stanford.nlp.process.PTBTokenizerTest) (3 ms)</li><li>edu.stanford.nlp.pipeline.WordsToSentencesAnnotatorTest.testTokenizeNLsDoesntChangeSsplitResults(edu.stanford.nlp.pipeline.WordsToSentencesAnnotatorTest) (12 ms)</li><li>edu.stanford.nlp.process.WordToSentenceProcessorTest.testRegion(edu.stanford.nlp.process.WordToSentenceProcessorTest) (4 ms)</li><li>edu.stanford.nlp.simple.SentenceTest.testCharacterOffsets(edu.stanford.nlp.simple.SentenceTest) (4 ms)</li><li>edu.stanford.nlp.process.DocumentPreprocessorTest.testXMLElementNotInText(edu.stanford.nlp.process.DocumentPreprocessorTest) (1 ms)</li><li>edu.stanford.nlp.pipeline.CleanXmlAnnotatorTest.testRemoveXML(edu.stanford.nlp.pipeline.CleanXmlAnnotatorTest) (2 ms)</li><li>edu.stanford.nlp.pipeline.CleanXmlAnnotatorTest.testAttributes(edu.stanford.nlp.pipeline.CleanXmlAnnotatorTest) (5 ms)</li><li>edu.stanford.nlp.pipeline.TokenizerAnnotatorTest.testBadLanguage(edu.stanford.nlp.pipeline.TokenizerAnnotatorTest) (2 ms)</li><li>edu.stanford.nlp.process.WordToSentenceProcessorTest.testTwoSentences(edu.stanford.nlp.process.WordToSentenceProcessorTest) (23 ms)</li><li>edu.stanford.nlp.sequences.ObjectBankWrapperTest.testUsingEnhancedFor(edu.stanford.nlp.sequences.ObjectBankWrapperTest) (2 ms)</li><li>edu.stanford.nlp.process.PTBTokenizerTest.testPTBTokenizerSGML(edu.stanford.nlp.process.PTBTokenizerTest) (9 ms)</li><li>edu.stanford.nlp.pipeline.CleanXmlAnnotatorTest.testExtractSpecificTag(edu.stanford.nlp.pipeline.CleanXmlAnnotatorTest) (2 ms)</li><li>edu.stanford.nlp.pipeline.CleanXmlAnnotatorTest.testOffsets(edu.stanford.nlp.pipeline.CleanXmlAnnotatorTest) (2 ms)</li><li>edu.stanford.nlp.pipeline.WordsToSentencesAnnotatorTest.testSentenceSplitting(edu.stanford.nlp.pipeline.WordsToSentencesAnnotatorTest) (19 ms)</li><li>edu.stanford.nlp.process.PTBTokenizerTest.testPTBTokenizerTokenizeSplitHyphens(edu.stanford.nlp.process.PTBTokenizerTest) (52 ms)</li><li>edu.stanford.nlp.simple.SentenceTest.testDocumentLinking(edu.stanford.nlp.simple.SentenceTest) (6 ms)</li><li>edu.stanford.nlp.process.WordToSentenceProcessorTest.testBlankLines(edu.stanford.nlp.process.WordToSentenceProcessorTest) (11 ms)</li><li>edu.stanford.nlp.process.PTBTokenizerTest.testEmoji(edu.stanford.nlp.process.PTBTokenizerTest) (3 ms)</li><li>edu.stanford.nlp.pipeline.WordsToSentencesAnnotatorTest.testDefaultNewlineIsSentenceBreakSettings(edu.stanford.nlp.pipeline.WordsToSentencesAnnotatorTest) (2 ms)</li><li>edu.stanford.nlp.ie.QuantifiableEntityNormalizerTest.testDateNormalization(edu.stanford.nlp.ie.QuantifiableEntityNormalizerTest) (109 ms)</li><li>edu.stanford.nlp.pipeline.JSONOutputterTest.testSimpleDocument(edu.stanford.nlp.pipeline.JSONOutputterTest) (12 ms)</li><li>edu.stanford.nlp.pipeline.WordsToSentencesAnnotatorTest.testAnnotator(edu.stanford.nlp.pipeline.WordsToSentencesAnnotatorTest) (7 ms)</li><li>edu.stanford.nlp.pipeline.WordsToSentencesAnnotatorTest.testTwoNewlineIsSentenceBreakSettings(edu.stanford.nlp.pipeline.WordsToSentencesAnnotatorTest) (4 ms)</li><li>edu.stanford.nlp.process.DocumentPreprocessorTest.testXMLElementInText(edu.stanford.nlp.process.DocumentPreprocessorTest) (2 ms)</li><li>edu.stanford.nlp.util.FileBackedCacheTest.testMerge(edu.stanford.nlp.util.FileBackedCacheTest) (44 ms)</li><li>edu.stanford.nlp.process.WordToSentenceProcessorTest.testNoSplitting(edu.stanford.nlp.process.WordToSentenceProcessorTest) (3 ms)</li><li>edu.stanford.nlp.pipeline.TokenizerAnnotatorTest.testDefaultNoNLsPipeline(edu.stanford.nlp.pipeline.TokenizerAnnotatorTest) (2 ms)</li><li>edu.stanford.nlp.simple.SentenceTest.testText(edu.stanford.nlp.simple.SentenceTest) (3 ms)</li><li>edu.stanford.nlp.pipeline.WordsToSentencesAnnotatorTest.testKbpWorks(edu.stanford.nlp.pipeline.WordsToSentencesAnnotatorTest) (15 ms)</li><li>edu.stanford.nlp.process.PTBTokenizerTest.testPTBTokenizerTokenizePerLineSGML(edu.stanford.nlp.process.PTBTokenizerTest) (27 ms)</li><li>edu.stanford.nlp.process.DocumentPreprocessorTest.testText(edu.stanford.nlp.process.DocumentPreprocessorTest) (3 ms)</li><li>edu.stanford.nlp.sequences.ObjectBankWrapperTest.testUsingIterator(edu.stanford.nlp.sequences.ObjectBankWrapperTest) (1 ms)</li><li>edu.stanford.nlp.ie.pascal.ISODateInstanceTest.testRelativeDateCreation(edu.stanford.nlp.ie.pascal.ISODateInstanceTest) (10 ms)</li><li>edu.stanford.nlp.process.WordToSentenceProcessorTest.testEdgeCases(edu.stanford.nlp.process.WordToSentenceProcessorTest) (11 ms)</li><li>edu.stanford.nlp.simple.SentenceTest.testFromCoreMapCorrectnessCheck(edu.stanford.nlp.simple.SentenceTest) (12 ms)</li><li>edu.stanford.nlp.process.WordToSentenceProcessorTest.testMr(edu.stanford.nlp.process.WordToSentenceProcessorTest) (2 ms)</li><li>edu.stanford.nlp.process.PTBTokenizerTest.testJacobEisensteinApostropheCase(edu.stanford.nlp.process.PTBTokenizerTest) (1 ms)</li><li>edu.stanford.nlp.pipeline.CleanXmlAnnotatorTest.testMissingCloseTags(edu.stanford.nlp.pipeline.CleanXmlAnnotatorTest) (2 ms)</li><li>edu.stanford.nlp.pipeline.CleanXmlAnnotatorTest.testEarlyEnd(edu.stanford.nlp.pipeline.CleanXmlAnnotatorTest) (4 ms)</li><li>edu.stanford.nlp.process.PTBTokenizerTest.testPTBTokenizerWord(edu.stanford.nlp.process.PTBTokenizerTest) (15 ms)</li><li>edu.stanford.nlp.pipeline.WordsToSentencesAnnotatorTest.testDatelineSeparation(edu.stanford.nlp.pipeline.WordsToSentencesAnnotatorTest) (35 ms)</li><li>edu.stanford.nlp.pipeline.CoNLLOutputterTest.testCustomSimpleSentence(edu.stanford.nlp.pipeline.CoNLLOutputterTest) (8 ms)</li><li>edu.stanford.nlp.pipeline.WordsToSentencesAnnotatorTest.testSpanishDatelineSeparation(edu.stanford.nlp.pipeline.WordsToSentencesAnnotatorTest) (9 ms)</li><li>edu.stanford.nlp.simple.SentenceTest.testSentenceIndex(edu.stanford.nlp.simple.SentenceTest) (12 ms)</li><li>edu.stanford.nlp.pipeline.AnnotatorPoolTest.testSignature(edu.stanford.nlp.pipeline.AnnotatorPoolTest) (4 ms)</li><li>edu.stanford.nlp.patterns.surface.AnnotatedTextReaderTest.testParse(edu.stanford.nlp.patterns.surface.AnnotatedTextReaderTest) (4 ms)</li><li>edu.stanford.nlp.process.PTBTokenizerTest.testTweets(edu.stanford.nlp.process.PTBTokenizerTest) (11 ms)</li><li>edu.stanford.nlp.pipeline.CleanXmlAnnotatorTest.testKbpSectionMatching(edu.stanford.nlp.pipeline.CleanXmlAnnotatorTest) (103 ms)</li><li>edu.stanford.nlp.pipeline.CleanXmlAnnotatorTest.testSentenceSplitting(edu.stanford.nlp.pipeline.CleanXmlAnnotatorTest) (13 ms)</li><li>edu.stanford.nlp.pipeline.WordsToSentencesAnnotatorTest.testAlwaysNewlineIsSentenceBreakSettings(edu.stanford.nlp.pipeline.WordsToSentencesAnnotatorTest) (3 ms)</li><li>edu.stanford.nlp.pipeline.CleanXmlAnnotatorTest.testViaCoreNlp(edu.stanford.nlp.pipeline.CleanXmlAnnotatorTest) (4 ms)</li><li>edu.stanford.nlp.loglinear.learning.OptimizerTests.testOptimizeLogLikelihood(edu.stanford.nlp.loglinear.learning.OptimizerTests) (32081 ms)</li><li>edu.stanford.nlp.process.PTBTokenizerTest.testPTBTokenizerMT(edu.stanford.nlp.process.PTBTokenizerTest) (6 ms)</li><li>edu.stanford.nlp.sequences.ObjectBankWrapperTest.testUsingToArray(edu.stanford.nlp.sequences.ObjectBankWrapperTest) (1 ms)</li><li>edu.stanford.nlp.pipeline.CleanXmlAnnotatorTest.testContext(edu.stanford.nlp.pipeline.CleanXmlAnnotatorTest) (2 ms)</li><li>edu.stanford.nlp.simple.SentenceTest.testCreateFromText(edu.stanford.nlp.simple.SentenceTest) (4 ms)</li><li>edu.stanford.nlp.simple.SentenceTest.testSentenceTokenOffsets(edu.stanford.nlp.simple.SentenceTest) (5 ms)</li><li>edu.stanford.nlp.simple.SentenceTest.testTokenizeWhitespaceSimple(edu.stanford.nlp.simple.SentenceTest) (9 ms)</li><li>edu.stanford.nlp.pipeline.WordsToSentencesAnnotatorTest.testTwoNewlineIsSentenceBreakTokenizeNLs(edu.stanford.nlp.pipeline.WordsToSentencesAnnotatorTest) (3 ms)</li><li>edu.stanford.nlp.simple.SentenceTest.testOriginalText(edu.stanford.nlp.simple.SentenceTest) (5 ms)</li><li>edu.stanford.nlp.pipeline.WordsToSentencesAnnotatorTest.testKbpSpanishWorks(edu.stanford.nlp.pipeline.WordsToSentencesAnnotatorTest) (11 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 1.4.4-SNAPSHOT
+
+</body>
+</html>

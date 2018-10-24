@@ -1,0 +1,1683 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>PatternBuilder.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/*</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Copyright 2015 Anton Tananaev (anton@traccar.org)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Licensed under the Apache License, Version 2.0 (the &#34;License&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * you may not use this file except in compliance with the License.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * You may obtain a copy of the License at</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *     http://www.apache.org/licenses/LICENSE-2.0</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Unless required by applicable law or agreed to in writing, software</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * distributed under the License is distributed on an &#34;AS IS&#34; BASIS,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * See the License for the specific language governing permissions and</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * limitations under the License.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package org.traccar.helper;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.ArrayList;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.regex.Pattern;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>public class PatternBuilder {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    private final ArrayList&#60;String&#62; fragments = new ArrayList&#60;&#62;();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public PatternBuilder optional() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_26'/>
+26
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_26'>1</a>
+<span>
+1. optional : mutated return of Object value for org/traccar/helper/PatternBuilder::optional to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return optional(1);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_29'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public PatternBuilder optional(int count) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_30'/>
+30
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_30'>2</a>
+<span>
+1. optional : Replaced integer subtraction with addition &rarr; KILLED<br/>
+2. optional : removed call to java/util/ArrayList::add &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        fragments.add(fragments.size() - count, &#34;(?:&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_31'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        fragments.add(&#34;)?&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_32'/>
+32
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_32'>1</a>
+<span>
+1. optional : mutated return of Object value for org/traccar/helper/PatternBuilder::optional to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return this;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_33'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_34'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_35'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public PatternBuilder expression(String s) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_36'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        s = s.replaceAll(&#34;\\|$&#34;, &#34;\\\\|&#34;); // special case for delimiter</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_37'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_38'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        fragments.add(s);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_39'/>
+39
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_39'>1</a>
+<span>
+1. expression : mutated return of Object value for org/traccar/helper/PatternBuilder::expression to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return this;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_40'/>
+40
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_40'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_41'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_42'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public PatternBuilder text(String s) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_43'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        fragments.add(s.replaceAll(&#34;([\\\\\\.\\[\\{\\(\\)\\*\\+\\?\\^\\$\\|])&#34;, &#34;\\\\$1&#34;));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_44'/>
+44
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_44'>1</a>
+<span>
+1. text : mutated return of Object value for org/traccar/helper/PatternBuilder::text to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return this;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_45'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_46'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_47'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public PatternBuilder number(String s) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_48'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        s = s.replace(&#34;dddd&#34;, &#34;d{4}&#34;).replace(&#34;ddd&#34;, &#34;d{3}&#34;).replace(&#34;dd&#34;, &#34;d{2}&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_49'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        s = s.replace(&#34;xxxx&#34;, &#34;x{4}&#34;).replace(&#34;xxx&#34;, &#34;x{3}&#34;).replace(&#34;xx&#34;, &#34;x{2}&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_50'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_51'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        s = s.replace(&#34;d&#34;, &#34;\\d&#34;).replace(&#34;x&#34;, &#34;[0-9a-fA-F]&#34;).replaceAll(&#34;([\\.])&#34;, &#34;\\\\$1&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_52'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        s = s.replaceAll(&#34;\\|$&#34;, &#34;\\\\|&#34;).replaceAll(&#34;^\\|&#34;, &#34;\\\\|&#34;); // special case for delimiter</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_53'/>
+53
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_53'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_54'/>
+54
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_54'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        fragments.add(s);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_55'/>
+55
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_55'>1</a>
+<span>
+1. number : mutated return of Object value for org/traccar/helper/PatternBuilder::number to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return this;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_56'/>
+56
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_56'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_57'/>
+57
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_57'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_58'/>
+58
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_58'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public PatternBuilder any() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_59'/>
+59
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_59'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        fragments.add(&#34;.*?&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_60'/>
+60
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_60'>1</a>
+<span>
+1. any : mutated return of Object value for org/traccar/helper/PatternBuilder::any to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return this;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_61'/>
+61
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_61'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_62'/>
+62
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_62'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_63'/>
+63
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_63'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public PatternBuilder binary(String s) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_64'/>
+64
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_64'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        fragments.add(s.replaceAll(&#34;(\\p{XDigit}{2})&#34;, &#34;\\\\$1&#34;));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_65'/>
+65
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_65'>1</a>
+<span>
+1. binary : mutated return of Object value for org/traccar/helper/PatternBuilder::binary to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return this;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_66'/>
+66
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_66'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_67'/>
+67
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_67'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_68'/>
+68
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_68'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public PatternBuilder or() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_69'/>
+69
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_69'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        fragments.add(&#34;|&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_70'/>
+70
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_70'>1</a>
+<span>
+1. or : mutated return of Object value for org/traccar/helper/PatternBuilder::or to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return this;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_71'/>
+71
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_71'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_72'/>
+72
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_72'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_73'/>
+73
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_73'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public PatternBuilder groupBegin() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_74'/>
+74
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_74'>1</a>
+<span>
+1. groupBegin : mutated return of Object value for org/traccar/helper/PatternBuilder::groupBegin to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return expression(&#34;(?:&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_75'/>
+75
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_75'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_76'/>
+76
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_76'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_77'/>
+77
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_77'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public PatternBuilder groupEnd() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_78'/>
+78
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_78'>1</a>
+<span>
+1. groupEnd : mutated return of Object value for org/traccar/helper/PatternBuilder::groupEnd to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return expression(&#34;)&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_79'/>
+79
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_79'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_80'/>
+80
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_80'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_81'/>
+81
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_81'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public PatternBuilder groupEnd(String s) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_82'/>
+82
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_82'>1</a>
+<span>
+1. groupEnd : mutated return of Object value for org/traccar/helper/PatternBuilder::groupEnd to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return expression(&#34;)&#34; + s);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_83'/>
+83
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_83'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_84'/>
+84
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_84'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_85'/>
+85
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_85'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Pattern compile() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_86'/>
+86
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_86'>1</a>
+<span>
+1. compile : mutated return of Object value for org/traccar/helper/PatternBuilder::compile to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return Pattern.compile(toString(), Pattern.DOTALL);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_87'/>
+87
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_87'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_88'/>
+88
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_88'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_89'/>
+89
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_89'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_90'/>
+90
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_90'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public String toString() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_91'/>
+91
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_91'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        StringBuilder builder = new StringBuilder();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_92'/>
+92
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_92'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        for (String fragment : fragments) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_93'/>
+93
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_93'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            builder.append(fragment);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_94'/>
+94
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_94'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_95'/>
+95
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_95'>1</a>
+<span>
+1. toString : mutated return of Object value for org/traccar/helper/PatternBuilder::toString to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return builder.toString();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_96'/>
+96
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_96'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_97'/>
+97
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_97'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6125589_98'/>
+98
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6125589_98'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6125589_26'>26</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6125589_26'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>optional<br/><b>Killed by : </b>org.traccar.protocol.ArnaviProtocolDecoderTest.testDecode(org.traccar.protocol.ArnaviProtocolDecoderTest)</span></span> mutated return of Object value for org/traccar/helper/PatternBuilder::optional to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6125589_30'>30</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6125589_30'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>optional<br/><b>Killed by : </b>org.traccar.helper.PatternBuilderTest.testPatternBuilder(org.traccar.helper.PatternBuilderTest)</span></span> Replaced integer subtraction with addition &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>optional<br/><b>Killed by : </b>org.traccar.helper.PatternBuilderTest.testPatternBuilder(org.traccar.helper.PatternBuilderTest)</span></span> removed call to java/util/ArrayList::add &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6125589_32'>32</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6125589_32'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>optional<br/><b>Killed by : </b>org.traccar.helper.PatternBuilderTest.testPatternBuilder(org.traccar.helper.PatternBuilderTest)</span></span> mutated return of Object value for org/traccar/helper/PatternBuilder::optional to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6125589_39'>39</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6125589_39'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>expression<br/><b>Killed by : </b>org.traccar.helper.PatternBuilderTest.testPatternBuilder(org.traccar.helper.PatternBuilderTest)</span></span> mutated return of Object value for org/traccar/helper/PatternBuilder::expression to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6125589_44'>44</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6125589_44'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>text<br/><b>Killed by : </b>org.traccar.helper.PatternBuilderTest.testPatternBuilder(org.traccar.helper.PatternBuilderTest)</span></span> mutated return of Object value for org/traccar/helper/PatternBuilder::text to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6125589_55'>55</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6125589_55'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>number<br/><b>Killed by : </b>org.traccar.helper.PatternBuilderTest.testPatternBuilder(org.traccar.helper.PatternBuilderTest)</span></span> mutated return of Object value for org/traccar/helper/PatternBuilder::number to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6125589_60'>60</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6125589_60'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>any<br/><b>Killed by : </b>org.traccar.protocol.CautelaProtocolDecoderTest.testDecode(org.traccar.protocol.CautelaProtocolDecoderTest)</span></span> mutated return of Object value for org/traccar/helper/PatternBuilder::any to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6125589_65'>65</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6125589_65'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>binary<br/><b>Killed by : </b>org.traccar.protocol.Tt8850ProtocolDecoderTest.testDecode(org.traccar.protocol.Tt8850ProtocolDecoderTest)</span></span> mutated return of Object value for org/traccar/helper/PatternBuilder::binary to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6125589_70'>70</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6125589_70'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>or<br/><b>Killed by : </b>org.traccar.helper.PatternBuilderTest.testPatternBuilder(org.traccar.helper.PatternBuilderTest)</span></span> mutated return of Object value for org/traccar/helper/PatternBuilder::or to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6125589_74'>74</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6125589_74'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>groupBegin<br/><b>Killed by : </b>org.traccar.protocol.WristbandProtocolDecoderTest.testDecode(org.traccar.protocol.WristbandProtocolDecoderTest)</span></span> mutated return of Object value for org/traccar/helper/PatternBuilder::groupBegin to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6125589_78'>78</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6125589_78'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>groupEnd<br/><b>Killed by : </b>org.traccar.protocol.MtxProtocolDecoderTest.testDecode(org.traccar.protocol.MtxProtocolDecoderTest)</span></span> mutated return of Object value for org/traccar/helper/PatternBuilder::groupEnd to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6125589_82'>82</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6125589_82'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>groupEnd<br/><b>Killed by : </b>org.traccar.protocol.WristbandProtocolDecoderTest.testDecode(org.traccar.protocol.WristbandProtocolDecoderTest)</span></span> mutated return of Object value for org/traccar/helper/PatternBuilder::groupEnd to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6125589_86'>86</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6125589_86'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>compile<br/><b>Killed by : </b>org.traccar.protocol.WristbandProtocolDecoderTest.testDecode(org.traccar.protocol.WristbandProtocolDecoderTest)</span></span> mutated return of Object value for org/traccar/helper/PatternBuilder::compile to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6125589_95'>95</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6125589_95'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toString<br/><b>Killed by : </b>org.traccar.helper.PatternBuilderTest.testPatternBuilder(org.traccar.helper.PatternBuilderTest)</span></span> mutated return of Object value for org/traccar/helper/PatternBuilder::toString to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+<li class='mutator'>MATH_MUTATOR</li>
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+<li class='mutator'>RETURN_VALS_MUTATOR</li>
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>org.traccar.protocol.WristbandProtocolDecoderTest.testDecode(org.traccar.protocol.WristbandProtocolDecoderTest) (0 ms)</li><li>org.traccar.protocol.CityeasyProtocolDecoderTest.testDecode(org.traccar.protocol.CityeasyProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.ManPowerProtocolDecoderTest.testDecode(org.traccar.protocol.ManPowerProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.Tr20ProtocolDecoderTest.testDecode(org.traccar.protocol.Tr20ProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.YwtProtocolDecoderTest.testDecode(org.traccar.protocol.YwtProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.TrvProtocolDecoderTest.testDecode(org.traccar.protocol.TrvProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.ArknavProtocolDecoderTest.testDecode(org.traccar.protocol.ArknavProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.HaicomProtocolDecoderTest.testDecode(org.traccar.protocol.HaicomProtocolDecoderTest) (0 ms)</li><li>org.traccar.protocol.FreedomProtocolDecoderTest.testDecode(org.traccar.protocol.FreedomProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.AppelloProtocolDecoderTest.testDecode(org.traccar.protocol.AppelloProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.MtxProtocolDecoderTest.testDecode(org.traccar.protocol.MtxProtocolDecoderTest) (0 ms)</li><li>org.traccar.protocol.M2cProtocolDecoderTest.testDecode(org.traccar.protocol.M2cProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.DishaProtocolDecoderTest.testDecode(org.traccar.protocol.DishaProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.CradlepointProtocolDecoderTest.testDecode(org.traccar.protocol.CradlepointProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.IdplProtocolDecoderTest.testDecode(org.traccar.protocol.IdplProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.CarTrackProtocolDecoderTest.testDecode(org.traccar.protocol.CarTrackProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.AlematicsProtocolDecoderTest.testDecode(org.traccar.protocol.AlematicsProtocolDecoderTest) (3 ms)</li><li>org.traccar.protocol.MegastekProtocolDecoderTest.testDecode(org.traccar.protocol.MegastekProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.FifotrackProtocolDecoderTest.testDecode(org.traccar.protocol.FifotrackProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.Pt3000ProtocolDecoderTest.testDecode(org.traccar.protocol.Pt3000ProtocolDecoderTest) (0 ms)</li><li>org.traccar.protocol.PretraceProtocolDecoderTest.testDecode(org.traccar.protocol.PretraceProtocolDecoderTest) (0 ms)</li><li>org.traccar.protocol.DwayProtocolDecoderTest.testDecode(org.traccar.protocol.DwayProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.EskyProtocolDecoderTest.testDecode(org.traccar.protocol.EskyProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.SupermateProtocolDecoderTest.testDecode(org.traccar.protocol.SupermateProtocolDecoderTest) (0 ms)</li><li>org.traccar.protocol.KenjiProtocolDecoderTest.testDecode(org.traccar.protocol.KenjiProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.TrakMateProtocolDecoderTest.testDecode(org.traccar.protocol.TrakMateProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.CarscopProtocolDecoderTest.testDecode(org.traccar.protocol.CarscopProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.AvemaProtocolDecoderTest.testDecode(org.traccar.protocol.AvemaProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.CautelaProtocolDecoderTest.testDecode(org.traccar.protocol.CautelaProtocolDecoderTest) (0 ms)</li><li>org.traccar.protocol.FoxProtocolDecoderTest.testDecode(org.traccar.protocol.FoxProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.Ardi01ProtocolDecoderTest.testDecode(org.traccar.protocol.Ardi01ProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.ExtremTracProtocolDecoderTest.testDecode(org.traccar.protocol.ExtremTracProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.BoxProtocolDecoderTest.testDecode(org.traccar.protocol.BoxProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.Gl200TextProtocolDecoderTest.testDecode(org.traccar.protocol.Gl200TextProtocolDecoderTest) (22 ms)</li><li>org.traccar.protocol.H02ProtocolDecoderTest.testDecode(org.traccar.protocol.H02ProtocolDecoderTest) (10 ms)</li><li>org.traccar.protocol.AustinNbProtocolDecoderTest.testDecode(org.traccar.protocol.AustinNbProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.TmgProtocolDecoderTest.testDecode(org.traccar.protocol.TmgProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.Tt8850ProtocolDecoderTest.testDecode(org.traccar.protocol.Tt8850ProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.EsealProtocolDecoderTest.testDecode(org.traccar.protocol.EsealProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.Tlt2hProtocolDecoderTest.testDecode(org.traccar.protocol.Tlt2hProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.TelicProtocolDecoderTest.testDecode(org.traccar.protocol.TelicProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.Gt06ProtocolDecoderTest.testDecode(org.traccar.protocol.Gt06ProtocolDecoderTest) (5 ms)</li><li>org.traccar.protocol.GnxProtocolDecoderTest.testDecode(org.traccar.protocol.GnxProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.VisiontekProtocolDecoderTest.testDecode(org.traccar.protocol.VisiontekProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.PathAwayProtocolDecoderTest.testDecode(org.traccar.protocol.PathAwayProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.L100ProtocolDecoderTest.testDecode(org.traccar.protocol.L100ProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.EnforaProtocolDecoderTest.testDecode(org.traccar.protocol.EnforaProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.RaveonProtocolDecoderTest.testDecode(org.traccar.protocol.RaveonProtocolDecoderTest) (0 ms)</li><li>org.traccar.protocol.MeiligaoProtocolDecoderTest.testDecode(org.traccar.protocol.MeiligaoProtocolDecoderTest) (5 ms)</li><li>org.traccar.protocol.HunterProProtocolDecoderTest.testDecode(org.traccar.protocol.HunterProProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.ArnaviProtocolDecoderTest.testDecode(org.traccar.protocol.ArnaviProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.RitiProtocolDecoderTest.testDecode(org.traccar.protocol.RitiProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.SmartSoleProtocolDecoderTest.testDecode(org.traccar.protocol.SmartSoleProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.XirgoProtocolDecoderTest.testDecodeNew(org.traccar.protocol.XirgoProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.SabertekProtocolDecoderTest.testDecode(org.traccar.protocol.SabertekProtocolDecoderTest) (0 ms)</li><li>org.traccar.protocol.FlexCommProtocolDecoderTest.testDecode(org.traccar.protocol.FlexCommProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.WatchProtocolDecoderTest.testDecode(org.traccar.protocol.WatchProtocolDecoderTest) (4 ms)</li><li>org.traccar.protocol.LaipacProtocolDecoderTest.testDecode(org.traccar.protocol.LaipacProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.XexunProtocolDecoderTest.testDecode(org.traccar.protocol.XexunProtocolDecoderTest) (3 ms)</li><li>org.traccar.protocol.UlbotechProtocolDecoderTest.testDecode(org.traccar.protocol.UlbotechProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.Tr900ProtocolDecoderTest.testDecode(org.traccar.protocol.Tr900ProtocolDecoderTest) (0 ms)</li><li>org.traccar.protocol.OkoProtocolDecoderTest.testDecode(org.traccar.protocol.OkoProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.EasyTrackProtocolDecoderTest.testDecode(org.traccar.protocol.EasyTrackProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.VtfmsProtocolDecoderTest.testDecode(org.traccar.protocol.VtfmsProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.StarLinkProtocolDecoderTest.testDecode(org.traccar.protocol.StarLinkProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.SanavProtocolDecoderTest.testDecode(org.traccar.protocol.SanavProtocolDecoderTest) (0 ms)</li><li>org.traccar.protocol.MiniFinderProtocolDecoderTest.testDecode(org.traccar.protocol.MiniFinderProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.Pt502ProtocolDecoderTest.testDecode(org.traccar.protocol.Pt502ProtocolDecoderTest) (3 ms)</li><li>org.traccar.protocol.HomtecsProtocolDecoderTest.testDecode(org.traccar.protocol.HomtecsProtocolDecoderTest) (0 ms)</li><li>org.traccar.protocol.AutoGradeProtocolDecoderTest.testDecode(org.traccar.protocol.AutoGradeProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.SviasProtocolDecoderTest.testDecode(org.traccar.protocol.SviasProtocolDecoderTest) (0 ms)</li><li>org.traccar.protocol.TekProtocolDecoderTest.testDecode(org.traccar.protocol.TekProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.IntellitracProtocolDecoderTest.testDecode(org.traccar.protocol.IntellitracProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.EelinkProtocolDecoderTest.testDecode(org.traccar.protocol.EelinkProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.UproProtocolDecoderTest.testDecode(org.traccar.protocol.UproProtocolDecoderTest) (3 ms)</li><li>org.traccar.protocol.Xt013ProtocolDecoderTest.testDecode(org.traccar.protocol.Xt013ProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.AtrackProtocolDecoderTest.testDecode(org.traccar.protocol.AtrackProtocolDecoderTest) (7 ms)</li><li>org.traccar.protocol.T55ProtocolDecoderTest.testDecode(org.traccar.protocol.T55ProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.MaestroProtocolDecoderTest.testDecode(org.traccar.protocol.MaestroProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.Tk103ProtocolDecoderTest.testDecode(org.traccar.protocol.Tk103ProtocolDecoderTest) (5 ms)</li><li>org.traccar.protocol.GlobalSatProtocolDecoderTest.testDecode(org.traccar.protocol.GlobalSatProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.GpsMarkerProtocolDecoderTest.testDecode(org.traccar.protocol.GpsMarkerProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.AuroProtocolDecoderTest.testDecode(org.traccar.protocol.AuroProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.GpsmtaProtocolDecoderTest.testDecode(org.traccar.protocol.GpsmtaProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.MeitrackProtocolDecoderTest.testDecode(org.traccar.protocol.MeitrackProtocolDecoderTest) (4 ms)</li><li>org.traccar.protocol.Stl060ProtocolDecoderTest.testDecode(org.traccar.protocol.Stl060ProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.WialonProtocolDecoderTest.testDecode(org.traccar.protocol.WialonProtocolDecoderTest) (4 ms)</li><li>org.traccar.protocol.CguardProtocolDecoderTest.testDecode(org.traccar.protocol.CguardProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.ItsProtocolDecoderTest.testDecode(org.traccar.protocol.ItsProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.OpenGtsProtocolDecoderTest.testDecode(org.traccar.protocol.OpenGtsProtocolDecoderTest) (2 ms)</li><li>org.traccar.helper.PatternBuilderTest.testPatternBuilder(org.traccar.helper.PatternBuilderTest) (0 ms)</li><li>org.traccar.protocol.Gt30ProtocolDecoderTest.testDecode(org.traccar.protocol.Gt30ProtocolDecoderTest) (0 ms)</li><li>org.traccar.protocol.FlextrackProtocolDecoderTest.testDecode(org.traccar.protocol.FlextrackProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.Ivt401ProtocolDecoderTest.testDecode(org.traccar.protocol.Ivt401ProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.GpsGateProtocolDecoderTest.testDecode(org.traccar.protocol.GpsGateProtocolDecoderTest) (0 ms)</li><li>org.traccar.protocol.WondexProtocolDecoderTest.testDecode(org.traccar.protocol.WondexProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.GoSafeProtocolDecoderTest.testDecode(org.traccar.protocol.GoSafeProtocolDecoderTest) (5 ms)</li><li>org.traccar.protocol.MilesmateProtocolDecoderTest.testDecode(org.traccar.protocol.MilesmateProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.JpKorjarProtocolDecoderTest.testDecode(org.traccar.protocol.JpKorjarProtocolDecoderTest) (0 ms)</li><li>org.traccar.protocol.V680ProtocolDecoderTest.testDecode(org.traccar.protocol.V680ProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.TaipProtocolDecoderTest.testDecode(org.traccar.protocol.TaipProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.Gps103ProtocolDecoderTest.testDecode(org.traccar.protocol.Gps103ProtocolDecoderTest) (6 ms)</li><li>org.traccar.protocol.ArknavX8ProtocolDecoderTest.testDecode(org.traccar.protocol.ArknavX8ProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.TrackboxProtocolDecoderTest.testDecode(org.traccar.protocol.TrackboxProtocolDecoderTest) (0 ms)</li><li>org.traccar.protocol.GotopProtocolDecoderTest.testDecode(org.traccar.protocol.GotopProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.SiwiProtocolDecoderTest.testDecode(org.traccar.protocol.SiwiProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.AquilaProtocolDecoderTest.testDecodeA(org.traccar.protocol.AquilaProtocolDecoderTest) (8 ms)</li><li>org.traccar.protocol.Gl100ProtocolDecoderTest.testDecode(org.traccar.protocol.Gl100ProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.Tk102ProtocolDecoderTest.testDecode(org.traccar.protocol.Tk102ProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.AisProtocolDecoderTest.testDecode(org.traccar.protocol.AisProtocolDecoderTest) (3 ms)</li><li>org.traccar.protocol.TopflytechProtocolDecoderTest.testDecode(org.traccar.protocol.TopflytechProtocolDecoderTest) (0 ms)</li><li>org.traccar.protocol.Pt60ProtocolDecoderTest.testDecode(org.traccar.protocol.Pt60ProtocolDecoderTest) (0 ms)</li><li>org.traccar.protocol.T57ProtocolDecoderTest.testDecode(org.traccar.protocol.T57ProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.TotemProtocolDecoderTest.testDecode(org.traccar.protocol.TotemProtocolDecoderTest) (4 ms)</li><li>org.traccar.protocol.Jt600ProtocolDecoderTest.testDecode(org.traccar.protocol.Jt600ProtocolDecoderTest) (4 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 1.4.4-SNAPSHOT
+
+</body>
+</html>

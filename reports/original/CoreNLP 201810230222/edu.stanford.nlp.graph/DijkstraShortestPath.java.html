@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>DijkstraShortestPath.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@755aef33_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package edu.stanford.nlp.graph;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@755aef33_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@755aef33_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.ArrayList;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@755aef33_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.Collections;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@755aef33_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.List;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@755aef33_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.Map;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@755aef33_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.Set;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@755aef33_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@755aef33_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import edu.stanford.nlp.util.BinaryHeapPriorityQueue;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@755aef33_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import edu.stanford.nlp.util.Generics;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@755aef33_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@755aef33_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public class DijkstraShortestPath {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@755aef33_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>  private DijkstraShortestPath() {} // static method only</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@755aef33_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@755aef33_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  public static &#60;V, E&#62; List&#60;V&#62; getShortestPath(Graph&#60;V, E&#62; graph,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@755aef33_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                                               V node1, V node2, </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@755aef33_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                                               boolean directionSensitive) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@755aef33_18'/>
+18
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_18'>1</a>
+<span>
+1. getShortestPath : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    if (node1.equals(node2)) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@755aef33_19'/>
+19
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_19'>1</a>
+<span>
+1. getShortestPath : mutated return of Object value for edu/stanford/nlp/graph/DijkstraShortestPath::getShortestPath to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      return Collections.singletonList(node2);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@755aef33_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@755aef33_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@755aef33_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    Set&#60;V&#62; visited = Generics.newHashSet();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@755aef33_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    </span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@755aef33_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    Map&#60;V, V&#62; previous = Generics.newHashMap();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@755aef33_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    </span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@755aef33_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    BinaryHeapPriorityQueue&#60;V&#62; unsettledNodes =</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@755aef33_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            new BinaryHeapPriorityQueue&#60;&#62;();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@755aef33_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@755aef33_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_29'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    unsettledNodes.add(node1, 0);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@755aef33_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@755aef33_31'/>
+31
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_31'>2</a>
+<span>
+1. getShortestPath : changed conditional boundary &rarr; KILLED<br/>
+2. getShortestPath : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    while (unsettledNodes.size() &#62; 0) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@755aef33_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_32'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>      double distance = unsettledNodes.getPriority();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@755aef33_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_33'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>      V u = unsettledNodes.removeFirst();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@755aef33_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_34'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>      visited.add(u);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@755aef33_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_35'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@755aef33_36'/>
+36
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_36'>1</a>
+<span>
+1. getShortestPath : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      if (u.equals(node2))</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@755aef33_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_37'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        break;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@755aef33_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_38'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@755aef33_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_39'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>      unsettledNodes.remove(u);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@755aef33_40'/>
+40
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_40'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@755aef33_41'/>
+41
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_41'>1</a>
+<span>
+1. getShortestPath : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      Set&#60;V&#62; candidates = ((directionSensitive) ? </span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@755aef33_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_42'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                           graph.getChildren(u) : graph.getNeighbors(u));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@755aef33_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_43'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>      for (V candidate : candidates) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@755aef33_44'/>
+44
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_44'>1</a>
+<span>
+1. getShortestPath : Replaced double subtraction with addition &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        double alt = distance - 1;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@755aef33_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_45'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        // nodes not already present will have a priority of -inf</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@755aef33_46'/>
+46
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_46'>2</a>
+<span>
+1. getShortestPath : changed conditional boundary &rarr; SURVIVED<br/>
+2. getShortestPath : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        if (alt &#62; unsettledNodes.getPriority(candidate) &#38;&#38;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@755aef33_47'/>
+47
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_47'>1</a>
+<span>
+1. getShortestPath : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            !visited.contains(candidate)) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@755aef33_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_48'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>          unsettledNodes.relaxPriority(candidate, alt);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@755aef33_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_49'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>          previous.put(candidate, u);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@755aef33_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_50'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@755aef33_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_51'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>      }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@755aef33_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_52'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@755aef33_53'/>
+53
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_53'>1</a>
+<span>
+1. getShortestPath : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    if (!previous.containsKey(node2))</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@755aef33_54'/>
+54
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_54'>1</a>
+<span>
+1. getShortestPath : mutated return of Object value for edu/stanford/nlp/graph/DijkstraShortestPath::getShortestPath to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      return null;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@755aef33_55'/>
+55
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_55'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    ArrayList&#60;V&#62; path = new ArrayList&#60;&#62;();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@755aef33_56'/>
+56
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_56'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    path.add(node2);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@755aef33_57'/>
+57
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_57'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    V n = node2;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@755aef33_58'/>
+58
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_58'>1</a>
+<span>
+1. getShortestPath : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    while (previous.containsKey(n)) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@755aef33_59'/>
+59
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_59'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>      path.add(previous.get(n));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@755aef33_60'/>
+60
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_60'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>      n = previous.get(n);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@755aef33_61'/>
+61
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_61'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@755aef33_62'/>
+62
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_62'>1</a>
+<span>
+1. getShortestPath : removed call to java/util/Collections::reverse &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    Collections.reverse(path);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@755aef33_63'/>
+63
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_63'>1</a>
+<span>
+1. getShortestPath : mutated return of Object value for edu/stanford/nlp/graph/DijkstraShortestPath::getShortestPath to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    return path;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@755aef33_64'/>
+64
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_64'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@755aef33_65'/>
+65
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_65'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@755aef33_66'/>
+66
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_66'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@755aef33_18'>18</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_18'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getShortestPath<br/><b>Killed by : </b>edu.stanford.nlp.graph.DirectedMultiGraphTest.testShortestPathDirectionInsensitiveNodes(edu.stanford.nlp.graph.DirectedMultiGraphTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@755aef33_19'>19</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_19'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getShortestPath<br/><b>Killed by : </b>edu.stanford.nlp.semgraph.SemanticGraphTest.testShortestPath(edu.stanford.nlp.semgraph.SemanticGraphTest)</span></span> mutated return of Object value for edu/stanford/nlp/graph/DijkstraShortestPath::getShortestPath to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@755aef33_31'>31</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_31'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getShortestPath<br/><b>Killed by : </b>edu.stanford.nlp.graph.DirectedMultiGraphTest.testShortestPathDirectionInsensitiveNodes(edu.stanford.nlp.graph.DirectedMultiGraphTest)</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getShortestPath<br/><b>Killed by : </b>edu.stanford.nlp.graph.DirectedMultiGraphTest.testShortestPathDirectionInsensitiveNodes(edu.stanford.nlp.graph.DirectedMultiGraphTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@755aef33_36'>36</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_36'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getShortestPath<br/><b>Killed by : </b>edu.stanford.nlp.graph.DirectedMultiGraphTest.testShortestPathDirectionInsensitiveNodes(edu.stanford.nlp.graph.DirectedMultiGraphTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@755aef33_41'>41</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_41'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getShortestPath<br/><b>Killed by : </b>edu.stanford.nlp.graph.DirectedMultiGraphTest.testShortestPathDirectionInsensitiveNodes(edu.stanford.nlp.graph.DirectedMultiGraphTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@755aef33_44'>44</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_44'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getShortestPath<br/><b>Killed by : </b>none</span></span> Replaced double subtraction with addition &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@755aef33_46'>46</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_46'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getShortestPath<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getShortestPath<br/><b>Killed by : </b>edu.stanford.nlp.graph.DirectedMultiGraphTest.testShortestPathDirectionInsensitiveNodes(edu.stanford.nlp.graph.DirectedMultiGraphTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@755aef33_47'>47</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_47'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getShortestPath<br/><b>Killed by : </b>edu.stanford.nlp.graph.DirectedMultiGraphTest.testShortestPathDirectionInsensitiveNodes(edu.stanford.nlp.graph.DirectedMultiGraphTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@755aef33_53'>53</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_53'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getShortestPath<br/><b>Killed by : </b>edu.stanford.nlp.graph.DirectedMultiGraphTest.testShortestPathDirectionInsensitiveNodes(edu.stanford.nlp.graph.DirectedMultiGraphTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@755aef33_54'>54</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_54'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getShortestPath<br/><b>Killed by : </b>edu.stanford.nlp.graph.DirectedMultiGraphTest.testShortestPathDirectionInsensitiveNodes(edu.stanford.nlp.graph.DirectedMultiGraphTest)</span></span> mutated return of Object value for edu/stanford/nlp/graph/DijkstraShortestPath::getShortestPath to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@755aef33_58'>58</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_58'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getShortestPath<br/><b>Killed by : </b>edu.stanford.nlp.graph.DirectedMultiGraphTest.testShortestPathDirectionInsensitiveNodes(edu.stanford.nlp.graph.DirectedMultiGraphTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@755aef33_62'>62</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_62'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getShortestPath<br/><b>Killed by : </b>edu.stanford.nlp.graph.DirectedMultiGraphTest.testShortestPathDirectionInsensitiveNodes(edu.stanford.nlp.graph.DirectedMultiGraphTest)</span></span> removed call to java/util/Collections::reverse &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@755aef33_63'>63</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@755aef33_63'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getShortestPath<br/><b>Killed by : </b>edu.stanford.nlp.graph.DirectedMultiGraphTest.testShortestPathDirectionInsensitiveNodes(edu.stanford.nlp.graph.DirectedMultiGraphTest)</span></span> mutated return of Object value for edu/stanford/nlp/graph/DijkstraShortestPath::getShortestPath to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+<li class='mutator'>MATH_MUTATOR</li>
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+<li class='mutator'>RETURN_VALS_MUTATOR</li>
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>edu.stanford.nlp.semgraph.SemanticGraphTest.testShortestPath(edu.stanford.nlp.semgraph.SemanticGraphTest) (98 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[142](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (112 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[46](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (76 ms)</li><li>edu.stanford.nlp.trees.EnglishGrammaticalStructureTest.testToBeRelations(edu.stanford.nlp.trees.EnglishGrammaticalStructureTest) (233 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[143](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (117 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[39](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (242 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[44](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (66 ms)</li><li>edu.stanford.nlp.trees.international.pennchinese.ChineseGrammaticalStructureTest.testBasicRelations(edu.stanford.nlp.trees.international.pennchinese.ChineseGrammaticalStructureTest) (33 ms)</li><li>edu.stanford.nlp.graph.DirectedMultiGraphTest.testShortestPathDirectionInsensitiveEdges(edu.stanford.nlp.graph.DirectedMultiGraphTest) (1 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[52](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (64 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[53](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (67 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[133](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (142 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[132](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (162 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[6](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (88 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[208](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (67 ms)</li><li>edu.stanford.nlp.trees.EnglishGrammaticalStructureTest.testCCProcessedRelations(edu.stanford.nlp.trees.EnglishGrammaticalStructureTest) (422 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[55](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (69 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[54](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (99 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[7](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (143 ms)</li><li>edu.stanford.nlp.trees.EnglishGrammaticalStructureTest.testBasicRelations(edu.stanford.nlp.trees.EnglishGrammaticalStructureTest) (994 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[256](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (143 ms)</li><li>edu.stanford.nlp.trees.TreePrintTest.testConll2007(edu.stanford.nlp.trees.TreePrintTest) (33 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[246](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (88 ms)</li><li>edu.stanford.nlp.semgraph.SemanticGraphTest.testHasChildren(edu.stanford.nlp.semgraph.SemanticGraphTest) (99 ms)</li><li>edu.stanford.nlp.trees.EnglishGrammaticalStructureTest.testNonCollapsedRelations(edu.stanford.nlp.trees.EnglishGrammaticalStructureTest) (71 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[245](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (94 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[152](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (89 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[153](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (84 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[76](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (103 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[155](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (98 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[91](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (76 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[79](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (131 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[154](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (84 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[228](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (70 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[25](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (81 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[229](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (94 ms)</li><li>edu.stanford.nlp.semgraph.SemanticGraphTest.testTopologicalSort(edu.stanford.nlp.semgraph.SemanticGraphTest) (100 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[187](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (96 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[87](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (83 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[232](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (83 ms)</li><li>edu.stanford.nlp.graph.DirectedMultiGraphTest.testShortestPathDirectionInsensitiveNodes(edu.stanford.nlp.graph.DirectedMultiGraphTest) (1 ms)</li><li>edu.stanford.nlp.semgraph.SemanticGraphTest.testGetCommonAncestor(edu.stanford.nlp.semgraph.SemanticGraphTest) (134 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[231](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (192 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[230](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (82 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[237](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (190 ms)</li><li>edu.stanford.nlp.trees.EnglishGrammaticalStructureTest.testCollapsedRelations(edu.stanford.nlp.trees.EnglishGrammaticalStructureTest) (300 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[238](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (180 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[224](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (76 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[223](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (74 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[92](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (103 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[93](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (72 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[88](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (87 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[171](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (75 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[178](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (103 ms)</li><li>edu.stanford.nlp.semgraph.SemanticGraphTest.testCommonAncestor(edu.stanford.nlp.semgraph.SemanticGraphTest) (235 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[116](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (108 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[170](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (102 ms)</li><li>edu.stanford.nlp.graph.DirectedMultiGraphTest.testShortedPathDirectionSensitiveEdges(edu.stanford.nlp.graph.DirectedMultiGraphTest) (2 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[117](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (104 ms)</li><li>edu.stanford.nlp.semgraph.SemanticGraphTest.testIsAncestor(edu.stanford.nlp.semgraph.SemanticGraphTest) (101 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[212](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (57 ms)</li><li>edu.stanford.nlp.trees.EnglishGrammaticalStructureTest.testBasicRelationsWithCopulaAsHead(edu.stanford.nlp.trees.EnglishGrammaticalStructureTest) (182 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[173](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (84 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[166](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (78 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[167](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (99 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[219](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (83 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[201](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (59 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[202](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (65 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[216](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (52 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[112](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (91 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[113](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (100 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[1](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (60 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[16](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (83 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[200](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (76 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[199](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (83 ms)</li><li>edu.stanford.nlp.semgraph.SemanticGraphTest.testGetPathToRoot(edu.stanford.nlp.semgraph.SemanticGraphTest) (115 ms)</li><li>edu.stanford.nlp.graph.DirectedMultiGraphTest.testShortestPathDirectionSensitiveNodes(edu.stanford.nlp.graph.DirectedMultiGraphTest) (2 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[193](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (75 ms)</li><li>edu.stanford.nlp.semgraph.SemanticGraphTest.testGetSiblings(edu.stanford.nlp.semgraph.SemanticGraphTest) (113 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[147](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (96 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[235](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (121 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[233](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (77 ms)</li><li>edu.stanford.nlp.trees.EnglishGrammaticalStructureTest.testMoreBasicRelations(edu.stanford.nlp.trees.EnglishGrammaticalStructureTest) (137 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[146](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (87 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 1.4.4-SNAPSHOT
+
+</body>
+</html>

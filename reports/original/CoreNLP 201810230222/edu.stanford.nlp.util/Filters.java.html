@@ -1,0 +1,5689 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>Filters.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package edu.stanford.nlp.util;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.io.Serializable;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.lang.reflect.Array;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.*;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.function.Predicate;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Static class with some useful {@link java.util.function.Predicate} implementations and utility methods for working</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * with {@code Predicates}.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * &#60;p&#62;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Contains filters that always accept or reject, filters that accept or reject an Object if it&#39;s in a given</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Collection, as well as several composite filters. Contains methods for creating a new Filter that is the AND/OR of</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * two Filters, or the NOT of a Filter. Finally, you can filter an Object[] through a Filter to return a new</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * {@code Object[]} with only the accepted values, or {@link #retainAll(java.util.Collection,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * java.util.function.Predicate)} elements in a Collection that pass a filter.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * @author Christopher Manning</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * @version 1.0</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public class Filters {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   * Nothing to instantiate</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   */</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>  private Filters() {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_29'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   * The acceptFilter accepts everything.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_31'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_32'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  public static &#60;T&#62; Predicate&#60;T&#62; acceptFilter() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_33'/>
+33
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_33'>1</a>
+<span>
+1. acceptFilter : mutated return of Object value for edu/stanford/nlp/util/Filters::acceptFilter to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    return new CategoricalFilter&#60;&#62;(true);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_34'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_35'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_36'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_37'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   * The rejectFilter accepts nothing.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_38'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_39'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  public static &#60;T&#62; Predicate&#60;T&#62; rejectFilter() {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_40'/>
+40
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_40'>1</a>
+<span>
+1. rejectFilter : mutated return of Object value for edu/stanford/nlp/util/Filters::rejectFilter to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>    return new CategoricalFilter&#60;&#62;(false);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_41'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_42'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_43'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  private static final class CategoricalFilter&#60;T&#62; implements Predicate&#60;T&#62;, Serializable {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_44'/>
+44
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_44'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_45'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final boolean judgment;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_46'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_47'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    protected CategoricalFilter(boolean judgment) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_48'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>      this.judgment = judgment;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_49'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_50'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_51'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_52'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Checks if the given object passes the filter.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_53'/>
+53
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_53'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_54'/>
+54
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_54'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param obj an object to test</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_55'/>
+55
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_55'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_56'/>
+56
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_56'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_57'/>
+57
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_57'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean test(T obj) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_58'/>
+58
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_58'>1</a>
+<span>
+1. test : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      return judgment;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_59'/>
+59
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_59'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_60'/>
+60
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_60'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_61'/>
+61
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_61'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_62'/>
+62
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_62'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public String toString() {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_63'/>
+63
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_63'>1</a>
+<span>
+1. toString : mutated return of Object value for edu/stanford/nlp/util/Filters$CategoricalFilter::toString to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>      return &#34;CategoricalFilter(&#34; + judgment + &#39;)&#39;;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_64'/>
+64
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_64'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_65'/>
+65
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_65'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_66'/>
+66
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_66'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_67'/>
+67
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_67'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public int hashCode() {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_68'/>
+68
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_68'>1</a>
+<span>
+1. hashCode : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>      return toString().hashCode();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_69'/>
+69
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_69'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_70'/>
+70
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_70'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_71'/>
+71
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_71'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_72'/>
+72
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_72'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean equals(Object other) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_73'/>
+73
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_73'>1</a>
+<span>
+1. equals : negated conditional &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>      if (other == this) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_74'/>
+74
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_74'>1</a>
+<span>
+1. equals : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        return true;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_75'/>
+75
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_75'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>      }</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_76'/>
+76
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_76'>1</a>
+<span>
+1. equals : negated conditional &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>      if (!(other instanceof CategoricalFilter)) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_77'/>
+77
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_77'>1</a>
+<span>
+1. equals : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        return false;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_78'/>
+78
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_78'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>      }</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_79'/>
+79
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_79'>2</a>
+<span>
+1. equals : negated conditional &rarr; NO_COVERAGE<br/>
+2. equals : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>      return ((CategoricalFilter) other).judgment == this.judgment;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_80'/>
+80
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_80'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_81'/>
+81
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_81'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_82'/>
+82
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_82'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    // Automatically generated by Eclipse</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_83'/>
+83
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_83'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private static final long serialVersionUID = 7501774666726883656L;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_84'/>
+84
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_84'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_85'/>
+85
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_85'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_86'/>
+86
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_86'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_87'/>
+87
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_87'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_88'/>
+88
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_88'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   * The collectionAcceptFilter accepts a certain collection.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_89'/>
+89
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_89'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_90'/>
+90
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_90'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  public static &#60;E&#62; Predicate&#60;E&#62; collectionAcceptFilter(E[] objs) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_91'/>
+91
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_91'>1</a>
+<span>
+1. collectionAcceptFilter : mutated return of Object value for edu/stanford/nlp/util/Filters::collectionAcceptFilter to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    return new CollectionAcceptFilter&#60;&#62;(Arrays.asList(objs), true);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_92'/>
+92
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_92'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_93'/>
+93
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_93'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_94'/>
+94
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_94'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_95'/>
+95
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_95'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   * The collectionAcceptFilter accepts a certain collection.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_96'/>
+96
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_96'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_97'/>
+97
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_97'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  public static &#60;E&#62; Predicate&#60;E&#62; collectionAcceptFilter(Collection&#60;E&#62; objs) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_98'/>
+98
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_98'>1</a>
+<span>
+1. collectionAcceptFilter : mutated return of Object value for edu/stanford/nlp/util/Filters::collectionAcceptFilter to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>    return new CollectionAcceptFilter&#60;&#62;(objs, true);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_99'/>
+99
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_99'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_100'/>
+100
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_100'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_101'/>
+101
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_101'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_102'/>
+102
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_102'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   * The collectionRejectFilter rejects a certain collection.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_103'/>
+103
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_103'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_104'/>
+104
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_104'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  public static &#60;E&#62; Predicate&#60;E&#62; collectionRejectFilter(E[] objs) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_105'/>
+105
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_105'>1</a>
+<span>
+1. collectionRejectFilter : mutated return of Object value for edu/stanford/nlp/util/Filters::collectionRejectFilter to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>    return new CollectionAcceptFilter&#60;&#62;(Arrays.asList(objs), false);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_106'/>
+106
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_106'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_107'/>
+107
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_107'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_108'/>
+108
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_108'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_109'/>
+109
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_109'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   * The collectionRejectFilter rejects a certain collection.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_110'/>
+110
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_110'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_111'/>
+111
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_111'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  public static &#60;E&#62; Predicate&#60;E&#62; collectionRejectFilter(Collection&#60;E&#62; objs) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_112'/>
+112
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_112'>1</a>
+<span>
+1. collectionRejectFilter : mutated return of Object value for edu/stanford/nlp/util/Filters::collectionRejectFilter to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>    return new CollectionAcceptFilter&#60;&#62;(objs, false);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_113'/>
+113
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_113'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_114'/>
+114
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_114'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_115'/>
+115
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_115'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  private static final class CollectionAcceptFilter&#60;E&#62; implements Predicate&#60;E&#62;, Serializable {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_116'/>
+116
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_116'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_117'/>
+117
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_117'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final Collection&#60;E&#62; args;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_118'/>
+118
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_118'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final boolean judgment;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_119'/>
+119
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_119'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_120'/>
+120
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_120'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    protected CollectionAcceptFilter(Collection&#60;E&#62; c, boolean judgment) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_121'/>
+121
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_121'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>      this.args = Generics.newHashSet(c);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_122'/>
+122
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_122'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>      this.judgment = judgment;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_123'/>
+123
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_123'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_124'/>
+124
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_124'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_125'/>
+125
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_125'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_126'/>
+126
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_126'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Checks if the given object passes the filter.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_127'/>
+127
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_127'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_128'/>
+128
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_128'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param obj an object to test</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_129'/>
+129
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_129'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_130'/>
+130
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_130'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_131'/>
+131
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_131'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean test(E obj) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_132'/>
+132
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_132'>1</a>
+<span>
+1. test : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      if (args.contains(obj)) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_133'/>
+133
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_133'>1</a>
+<span>
+1. test : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return judgment;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_134'/>
+134
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_134'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>      }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_135'/>
+135
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_135'>2</a>
+<span>
+1. test : negated conditional &rarr; KILLED<br/>
+2. test : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      return !judgment;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_136'/>
+136
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_136'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_137'/>
+137
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_137'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_138'/>
+138
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_138'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_139'/>
+139
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_139'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public String toString() {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_140'/>
+140
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_140'>1</a>
+<span>
+1. toString : mutated return of Object value for edu/stanford/nlp/util/Filters$CollectionAcceptFilter::toString to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>      return &#34;(&#34; + judgment + &#39;:&#39; + args + &#39;)&#39;;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_141'/>
+141
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_141'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_142'/>
+142
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_142'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_143'/>
+143
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_143'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private static final long serialVersionUID = -8870550963937943540L;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_144'/>
+144
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_144'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_145'/>
+145
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_145'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  } // end class CollectionAcceptFilter</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_146'/>
+146
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_146'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_147'/>
+147
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_147'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_148'/>
+148
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_148'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   * Filter that accepts only when both filters accept (AND).</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_149'/>
+149
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_149'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_150'/>
+150
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_150'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  public static &#60;E&#62; Predicate&#60;E&#62; andFilter(Predicate&#60;E&#62; f1, Predicate&#60;E&#62; f2) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_151'/>
+151
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_151'>1</a>
+<span>
+1. andFilter : mutated return of Object value for edu/stanford/nlp/util/Filters::andFilter to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>    return (new CombinedFilter&#60;&#62;(f1, f2, true));</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_152'/>
+152
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_152'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_153'/>
+153
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_153'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_154'/>
+154
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_154'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_155'/>
+155
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_155'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   * Filter that accepts when either filter accepts (OR).</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_156'/>
+156
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_156'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_157'/>
+157
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_157'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  public static &#60;E&#62; Predicate&#60;E&#62; orFilter(Predicate&#60;E&#62; f1, Predicate&#60;E&#62; f2) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_158'/>
+158
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_158'>1</a>
+<span>
+1. orFilter : mutated return of Object value for edu/stanford/nlp/util/Filters::orFilter to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>    return (new CombinedFilter&#60;&#62;(f1, f2, false));</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_159'/>
+159
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_159'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_160'/>
+160
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_160'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_161'/>
+161
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_161'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_162'/>
+162
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_162'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   * Conjunction or disjunction of two filters.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_163'/>
+163
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_163'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_164'/>
+164
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_164'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  private static class CombinedFilter&#60;E&#62; implements Predicate&#60;E&#62;, Serializable {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_165'/>
+165
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_165'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final Predicate&#60;E&#62; f1, f2;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_166'/>
+166
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_166'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final boolean conjunction; // and vs. or</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_167'/>
+167
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_167'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_168'/>
+168
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_168'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>    public CombinedFilter(Predicate&#60;E&#62; f1, Predicate&#60;E&#62; f2, boolean conjunction) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_169'/>
+169
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_169'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>      this.f1 = f1;</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_170'/>
+170
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_170'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>      this.f2 = f2;</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_171'/>
+171
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_171'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>      this.conjunction = conjunction;</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_172'/>
+172
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_172'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_173'/>
+173
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_173'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_174'/>
+174
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_174'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_175'/>
+175
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_175'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean test(E o) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_176'/>
+176
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_176'>1</a>
+<span>
+1. test : negated conditional &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>      if (conjunction) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_177'/>
+177
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_177'>3</a>
+<span>
+1. test : negated conditional &rarr; NO_COVERAGE<br/>
+2. test : negated conditional &rarr; NO_COVERAGE<br/>
+3. test : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        return (f1.test(o) &#38;&#38; f2.test(o));</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_178'/>
+178
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_178'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>      }</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_179'/>
+179
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_179'>3</a>
+<span>
+1. test : negated conditional &rarr; NO_COVERAGE<br/>
+2. test : negated conditional &rarr; NO_COVERAGE<br/>
+3. test : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>      return (f1.test(o) || f2.test(o));</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_180'/>
+180
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_180'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_181'/>
+181
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_181'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_182'/>
+182
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_182'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    // Automatically generated by Eclipse</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_183'/>
+183
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_183'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private static final long serialVersionUID = -2988241258905198687L;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_184'/>
+184
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_184'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_185'/>
+185
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_185'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_186'/>
+186
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_186'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_187'/>
+187
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_187'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   * Disjunction of a list of filters.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_188'/>
+188
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_188'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_189'/>
+189
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_189'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  public static class DisjFilter&#60;T&#62; implements Predicate&#60;T&#62;, Serializable {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_190'/>
+190
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_190'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final List&#60;Predicate&#60;T&#62;&#62; filters;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_191'/>
+191
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_191'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_192'/>
+192
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_192'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>    public DisjFilter(List&#60;Predicate&#60;T&#62;&#62; filters) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_193'/>
+193
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_193'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>      this.filters = filters;</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_194'/>
+194
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_194'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_195'/>
+195
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_195'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_196'/>
+196
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_196'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @SafeVarargs</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_197'/>
+197
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_197'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>    public DisjFilter(Predicate&#60;T&#62;... filters) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_198'/>
+198
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_198'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>      this.filters = new ArrayList&#60;&#62;();</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_199'/>
+199
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_199'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>      this.filters.addAll(Arrays.asList(filters));</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_200'/>
+200
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_200'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_201'/>
+201
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_201'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_202'/>
+202
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_202'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void addFilter(Predicate&#60;T&#62; filter) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_203'/>
+203
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_203'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>      filters.add(filter);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_204'/>
+204
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_204'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_205'/>
+205
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_205'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_206'/>
+206
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_206'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_207'/>
+207
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_207'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean test(T obj) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_208'/>
+208
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_208'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>      for (Predicate&#60;T&#62; f:filters) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_209'/>
+209
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_209'>2</a>
+<span>
+1. test : negated conditional &rarr; NO_COVERAGE<br/>
+2. test : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        if (f.test(obj)) return true;</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_210'/>
+210
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_210'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>      }</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_211'/>
+211
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_211'>1</a>
+<span>
+1. test : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>      return false;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_212'/>
+212
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_212'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_213'/>
+213
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_213'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_214'/>
+214
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_214'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private static final long serialVersionUID = 1L;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_215'/>
+215
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_215'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_216'/>
+216
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_216'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_217'/>
+217
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_217'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_218'/>
+218
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_218'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   * Conjunction of a list of filters.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_219'/>
+219
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_219'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_220'/>
+220
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_220'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  public static class ConjFilter&#60;T&#62; implements Predicate&#60;T&#62;, Serializable {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_221'/>
+221
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_221'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final List&#60;Predicate&#60;T&#62;&#62; filters;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_222'/>
+222
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_222'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_223'/>
+223
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_223'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>    public ConjFilter(List&#60;Predicate&#60;T&#62;&#62; filters) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_224'/>
+224
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_224'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>      this.filters = filters;</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_225'/>
+225
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_225'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_226'/>
+226
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_226'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_227'/>
+227
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_227'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @SafeVarargs</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_228'/>
+228
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_228'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>    public ConjFilter(Predicate&#60;T&#62;... filters) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_229'/>
+229
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_229'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>      this.filters = new ArrayList&#60;&#62;();</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_230'/>
+230
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_230'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>      this.filters.addAll(Arrays.asList(filters));</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_231'/>
+231
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_231'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_232'/>
+232
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_232'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_233'/>
+233
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_233'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void addFilter(Predicate&#60;T&#62; filter) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_234'/>
+234
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_234'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>      filters.add(filter);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_235'/>
+235
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_235'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_236'/>
+236
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_236'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_237'/>
+237
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_237'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_238'/>
+238
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_238'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean test(T obj) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_239'/>
+239
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_239'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>      for (Predicate&#60;T&#62; f:filters) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_240'/>
+240
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_240'>2</a>
+<span>
+1. test : negated conditional &rarr; NO_COVERAGE<br/>
+2. test : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        if (!f.test(obj)) return false;</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_241'/>
+241
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_241'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>      }</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_242'/>
+242
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_242'>1</a>
+<span>
+1. test : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>      return true;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_243'/>
+243
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_243'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_244'/>
+244
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_244'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_245'/>
+245
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_245'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private static final long serialVersionUID = 1L;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_246'/>
+246
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_246'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_247'/>
+247
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_247'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_248'/>
+248
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_248'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_249'/>
+249
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_249'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   * Filter that does the opposite of given filter (NOT).</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_250'/>
+250
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_250'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_251'/>
+251
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_251'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  public static &#60;E&#62; Predicate&#60;E&#62; notFilter(Predicate&#60;E&#62; filter) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_252'/>
+252
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_252'>1</a>
+<span>
+1. notFilter : mutated return of Object value for edu/stanford/nlp/util/Filters::notFilter to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    return (new NegatedFilter&#60;&#62;(filter));</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_253'/>
+253
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_253'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_254'/>
+254
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_254'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_255'/>
+255
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_255'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_256'/>
+256
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_256'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   * Filter that&#39;s either negated or normal as specified.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_257'/>
+257
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_257'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_258'/>
+258
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_258'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  public static &#60;E&#62; Predicate&#60;E&#62; switchedFilter(Predicate&#60;E&#62; filter, boolean negated) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_259'/>
+259
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_259'>1</a>
+<span>
+1. switchedFilter : mutated return of Object value for edu/stanford/nlp/util/Filters::switchedFilter to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>    return new NegatedFilter&#60;&#62;(filter, negated);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_260'/>
+260
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_260'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_261'/>
+261
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_261'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_262'/>
+262
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_262'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_263'/>
+263
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_263'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   * Negation of a filter.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_264'/>
+264
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_264'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_265'/>
+265
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_265'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  private static class NegatedFilter&#60;E&#62; implements Predicate&#60;E&#62;, Serializable {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_266'/>
+266
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_266'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final Predicate&#60;E&#62; filter;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_267'/>
+267
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_267'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final boolean negated;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_268'/>
+268
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_268'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_269'/>
+269
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_269'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    public NegatedFilter(Predicate&#60;E&#62; filter, boolean negated) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_270'/>
+270
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_270'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>      this.filter = filter;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_271'/>
+271
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_271'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>      this.negated = negated;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_272'/>
+272
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_272'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_273'/>
+273
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_273'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_274'/>
+274
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_274'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public NegatedFilter(Predicate&#60;E&#62; filter) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_275'/>
+275
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_275'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>      this(filter, true);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_276'/>
+276
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_276'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_277'/>
+277
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_277'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_278'/>
+278
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_278'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_279'/>
+279
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_279'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean test(E o) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_280'/>
+280
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_280'>2</a>
+<span>
+1. test : Replaced XOR with AND &rarr; KILLED<br/>
+2. test : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      return (negated ^ filter.test(o)); // xor</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_281'/>
+281
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_281'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_282'/>
+282
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_282'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_283'/>
+283
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_283'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public String toString() {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_284'/>
+284
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_284'>1</a>
+<span>
+1. toString : mutated return of Object value for edu/stanford/nlp/util/Filters$NegatedFilter::toString to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>      return &#34;NOT(&#34; + filter.toString() + &#39;)&#39;;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_285'/>
+285
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_285'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_286'/>
+286
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_286'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_287'/>
+287
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_287'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    // Automatically generated by Eclipse</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_288'/>
+288
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_288'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private static final long serialVersionUID = -1599556783677718177L;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_289'/>
+289
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_289'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_290'/>
+290
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_290'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_291'/>
+291
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_291'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_292'/>
+292
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_292'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   * A filter that accepts a random fraction of the input it sees.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_293'/>
+293
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_293'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_294'/>
+294
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_294'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  public static class RandomFilter&#60;E&#62; implements Predicate&#60;E&#62;, Serializable {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_295'/>
+295
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_295'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private static final long serialVersionUID = -4885773582960355425L;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_296'/>
+296
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_296'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final Random random;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_297'/>
+297
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_297'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final double fraction;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_298'/>
+298
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_298'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_299'/>
+299
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_299'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public RandomFilter() {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_300'/>
+300
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_300'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>      this(0.1, new Random());</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_301'/>
+301
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_301'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_302'/>
+302
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_302'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_303'/>
+303
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_303'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public RandomFilter(double fraction) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_304'/>
+304
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_304'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>      this(fraction, new Random());</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_305'/>
+305
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_305'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_306'/>
+306
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_306'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_307'/>
+307
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_307'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>    public RandomFilter(double fraction, Random random) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_308'/>
+308
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_308'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>      this.fraction = fraction;</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_309'/>
+309
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_309'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>      this.random = random;</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_310'/>
+310
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_310'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_311'/>
+311
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_311'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_312'/>
+312
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_312'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_313'/>
+313
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_313'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean test(E o) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_314'/>
+314
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_314'>3</a>
+<span>
+1. test : changed conditional boundary &rarr; NO_COVERAGE<br/>
+2. test : negated conditional &rarr; NO_COVERAGE<br/>
+3. test : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>      return (random.nextDouble() &#60; fraction);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_315'/>
+315
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_315'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_316'/>
+316
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_316'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_317'/>
+317
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_317'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_318'/>
+318
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_318'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_319'/>
+319
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_319'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   * Applies the given filter to each of the given elements, and returns the</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_320'/>
+320
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_320'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   * array of elements that were accepted. The runtime type of the returned</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_321'/>
+321
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_321'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   * array is the same as the passed in array.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_322'/>
+322
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_322'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_323'/>
+323
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_323'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  @SuppressWarnings(&#34;unchecked&#34;)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_324'/>
+324
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_324'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  public static &#60;E&#62; E[] filter(E[] elems, Predicate&#60;E&#62; filter) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_325'/>
+325
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_325'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>    List&#60;E&#62; filtered = new ArrayList&#60;&#62;();</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_326'/>
+326
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_326'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>    for (E elem: elems) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_327'/>
+327
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_327'>1</a>
+<span>
+1. filter : negated conditional &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>      if (filter.test(elem)) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_328'/>
+328
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_328'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        filtered.add(elem);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_329'/>
+329
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_329'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>      }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_330'/>
+330
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_330'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_331'/>
+331
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_331'>1</a>
+<span>
+1. filter : mutated return of Object value for edu/stanford/nlp/util/Filters::filter to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>    return (filtered.toArray((E[]) Array.newInstance(elems.getClass().getComponentType(), filtered.size())));</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_332'/>
+332
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_332'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_333'/>
+333
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_333'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_334'/>
+334
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_334'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_335'/>
+335
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_335'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   * Removes all elements in the given Collection that aren&#39;t accepted by the given Filter.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_336'/>
+336
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_336'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_337'/>
+337
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_337'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  public static &#60;E&#62; void retainAll(Collection&#60;E&#62; elems, Predicate&#60;? super E&#62; filter) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_338'/>
+338
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_338'>1</a>
+<span>
+1. retainAll : negated conditional &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>    for (Iterator&#60;E&#62; iter = elems.iterator(); iter.hasNext();) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_339'/>
+339
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_339'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>      E elem = iter.next();</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_340'/>
+340
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_340'>1</a>
+<span>
+1. retainAll : negated conditional &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>      if ( ! filter.test(elem)) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_341'/>
+341
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_341'>1</a>
+<span>
+1. retainAll : removed call to java/util/Iterator::remove &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        iter.remove();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_342'/>
+342
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_342'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>      }</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_343'/>
+343
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_343'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_344'/>
+344
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_344'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_345'/>
+345
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_345'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2f725f38_346'/>
+346
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_346'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2f725f38_33'>33</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_33'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>acceptFilter<br/><b>Killed by : </b>edu.stanford.nlp.semgraph.semgrex.SemgrexTest.testInitialConditions(edu.stanford.nlp.semgraph.semgrex.SemgrexTest)</span></span> mutated return of Object value for edu/stanford/nlp/util/Filters::acceptFilter to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2f725f38_40'>40</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_40'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>rejectFilter<br/><b>Killed by : </b>none</span></span> mutated return of Object value for edu/stanford/nlp/util/Filters::rejectFilter to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2f725f38_58'>58</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_58'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>test<br/><b>Killed by : </b>edu.stanford.nlp.semgraph.semgrex.SemgrexTest.testInitialConditions(edu.stanford.nlp.semgraph.semgrex.SemgrexTest)</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2f725f38_63'>63</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_63'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toString<br/><b>Killed by : </b>none</span></span> mutated return of Object value for edu/stanford/nlp/util/Filters$CategoricalFilter::toString to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2f725f38_68'>68</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_68'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b>none</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2f725f38_73'>73</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_73'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2f725f38_74'>74</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_74'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>none</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2f725f38_76'>76</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_76'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2f725f38_77'>77</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_77'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>none</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2f725f38_79'>79</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_79'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>none</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2f725f38_91'>91</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_91'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>collectionAcceptFilter<br/><b>Killed by : </b>edu.stanford.nlp.trees.international.negra.NegraPennLanguagePackTest.testBasicCategory(edu.stanford.nlp.trees.international.negra.NegraPennLanguagePackTest)</span></span> mutated return of Object value for edu/stanford/nlp/util/Filters::collectionAcceptFilter to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2f725f38_98'>98</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_98'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>collectionAcceptFilter<br/><b>Killed by : </b>none</span></span> mutated return of Object value for edu/stanford/nlp/util/Filters::collectionAcceptFilter to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2f725f38_105'>105</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_105'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>collectionRejectFilter<br/><b>Killed by : </b>none</span></span> mutated return of Object value for edu/stanford/nlp/util/Filters::collectionRejectFilter to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2f725f38_112'>112</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_112'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>collectionRejectFilter<br/><b>Killed by : </b>none</span></span> mutated return of Object value for edu/stanford/nlp/util/Filters::collectionRejectFilter to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2f725f38_132'>132</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_132'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>test<br/><b>Killed by : </b>edu.stanford.nlp.trees.international.negra.NegraPennLanguagePackTest.testBasicCategory(edu.stanford.nlp.trees.international.negra.NegraPennLanguagePackTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2f725f38_133'>133</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_133'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>test<br/><b>Killed by : </b>edu.stanford.nlp.trees.international.negra.NegraPennLanguagePackTest.testBasicCategory(edu.stanford.nlp.trees.international.negra.NegraPennLanguagePackTest)</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2f725f38_135'>135</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_135'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>test<br/><b>Killed by : </b>edu.stanford.nlp.trees.EnglishGrammaticalStructureTest.testNonCollapsedSeparator(edu.stanford.nlp.trees.EnglishGrammaticalStructureTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>test<br/><b>Killed by : </b>edu.stanford.nlp.trees.EnglishGrammaticalStructureTest.testNonCollapsedSeparator(edu.stanford.nlp.trees.EnglishGrammaticalStructureTest)</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2f725f38_140'>140</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_140'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toString<br/><b>Killed by : </b>none</span></span> mutated return of Object value for edu/stanford/nlp/util/Filters$CollectionAcceptFilter::toString to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2f725f38_151'>151</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_151'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>andFilter<br/><b>Killed by : </b>none</span></span> mutated return of Object value for edu/stanford/nlp/util/Filters::andFilter to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2f725f38_158'>158</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_158'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>orFilter<br/><b>Killed by : </b>none</span></span> mutated return of Object value for edu/stanford/nlp/util/Filters::orFilter to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2f725f38_176'>176</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_176'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>test<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2f725f38_177'>177</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_177'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>test<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>test<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>test<br/><b>Killed by : </b>none</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2f725f38_179'>179</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_179'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>test<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>test<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>test<br/><b>Killed by : </b>none</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2f725f38_209'>209</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_209'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>test<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>test<br/><b>Killed by : </b>none</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2f725f38_211'>211</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_211'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>test<br/><b>Killed by : </b>none</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2f725f38_240'>240</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_240'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>test<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>test<br/><b>Killed by : </b>none</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2f725f38_242'>242</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_242'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>test<br/><b>Killed by : </b>none</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2f725f38_252'>252</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_252'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>notFilter<br/><b>Killed by : </b>edu.stanford.nlp.trees.EnglishGrammaticalStructureTest.testNonCollapsedSeparator(edu.stanford.nlp.trees.EnglishGrammaticalStructureTest)</span></span> mutated return of Object value for edu/stanford/nlp/util/Filters::notFilter to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2f725f38_259'>259</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_259'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>switchedFilter<br/><b>Killed by : </b>none</span></span> mutated return of Object value for edu/stanford/nlp/util/Filters::switchedFilter to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2f725f38_280'>280</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_280'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>test<br/><b>Killed by : </b>edu.stanford.nlp.trees.EnglishGrammaticalStructureTest.testNonCollapsedSeparator(edu.stanford.nlp.trees.EnglishGrammaticalStructureTest)</span></span> Replaced XOR with AND &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>test<br/><b>Killed by : </b>edu.stanford.nlp.trees.EnglishGrammaticalStructureTest.testNonCollapsedSeparator(edu.stanford.nlp.trees.EnglishGrammaticalStructureTest)</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2f725f38_284'>284</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_284'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toString<br/><b>Killed by : </b>none</span></span> mutated return of Object value for edu/stanford/nlp/util/Filters$NegatedFilter::toString to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2f725f38_314'>314</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_314'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>test<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>test<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>test<br/><b>Killed by : </b>none</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2f725f38_327'>327</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_327'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>filter<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2f725f38_331'>331</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_331'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>filter<br/><b>Killed by : </b>none</span></span> mutated return of Object value for edu/stanford/nlp/util/Filters::filter to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2f725f38_338'>338</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_338'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>retainAll<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2f725f38_340'>340</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_340'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>retainAll<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2f725f38_341'>341</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2f725f38_341'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>retainAll<br/><b>Killed by : </b>none</span></span> removed call to java/util/Iterator::remove &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+<li class='mutator'>MATH_MUTATOR</li>
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+<li class='mutator'>RETURN_VALS_MUTATOR</li>
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>edu.stanford.nlp.trees.EnglishGrammaticalStructureTest.testToBeRelations(edu.stanford.nlp.trees.EnglishGrammaticalStructureTest) (233 ms)</li><li>edu.stanford.nlp.semgraph.semgrex.SemgrexPatternTest.testPrettyPrint(edu.stanford.nlp.semgraph.semgrex.SemgrexPatternTest) (2 ms)</li><li>edu.stanford.nlp.semgraph.semgrex.SemgrexTest.testMultipleDepths(edu.stanford.nlp.semgraph.semgrex.SemgrexTest) (2 ms)</li><li>edu.stanford.nlp.trees.TreePrintTest.testConll2007(edu.stanford.nlp.trees.TreePrintTest) (33 ms)</li><li>edu.stanford.nlp.ling.SentenceTest.testTokenizedSentenceSize(edu.stanford.nlp.ling.SentenceTest) (82 ms)</li><li>edu.stanford.nlp.trees.TreeTest.testDominates(edu.stanford.nlp.trees.TreeTest) (1 ms)</li><li>edu.stanford.nlp.trees.QPTreeTransformerTest.testCompoundModifiers(edu.stanford.nlp.trees.QPTreeTransformerTest) (5 ms)</li><li>edu.stanford.nlp.trees.CoordinationTransformerTest.testMoveRB(edu.stanford.nlp.trees.CoordinationTransformerTest) (3 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[91](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (76 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[90](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (105 ms)</li><li>edu.stanford.nlp.semgraph.semgrex.SemgrexTest.testPartition(edu.stanford.nlp.semgraph.semgrex.SemgrexTest) (9 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[86](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (137 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[84](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (94 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[80](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (138 ms)</li><li>edu.stanford.nlp.pipeline.JSONOutputterTest.testSimpleDocument(edu.stanford.nlp.pipeline.JSONOutputterTest) (12 ms)</li><li>edu.stanford.nlp.trees.EnglishGrammaticalStructureTest.testNonCollapsedSeparator(edu.stanford.nlp.trees.EnglishGrammaticalStructureTest) (6 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[92](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (103 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[88](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (87 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[98](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (91 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[94](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (86 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[96](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (99 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[61](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (198 ms)</li><li>edu.stanford.nlp.pipeline.CoNLLOutputterTest.testCustomSimpleSentence(edu.stanford.nlp.pipeline.CoNLLOutputterTest) (8 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[63](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (89 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[67](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (100 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[69](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (76 ms)</li><li>edu.stanford.nlp.trees.GrammaticalStructureTest.testEnglishDependenciesByTree(edu.stanford.nlp.trees.GrammaticalStructureTest) (23 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[65](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (76 ms)</li><li>edu.stanford.nlp.trees.SemanticHeadFinderTest.testCopulaHeadSemanticHeadFinder(edu.stanford.nlp.trees.SemanticHeadFinderTest) (5 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[82](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (103 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[42](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (64 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[46](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (76 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[47](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (61 ms)</li><li>edu.stanford.nlp.parser.shiftreduce.OracleTest.testEndToEndCompoundUnaries(edu.stanford.nlp.parser.shiftreduce.OracleTest) (20 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[39](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (242 ms)</li><li>edu.stanford.nlp.trees.ModCollinsHeadFinderTest.testModCollinsHeadFinder(edu.stanford.nlp.trees.ModCollinsHeadFinderTest) (3 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[43](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (100 ms)</li><li>edu.stanford.nlp.trees.international.pennchinese.ChineseGrammaticalStructureTest.testBasicRelations(edu.stanford.nlp.trees.international.pennchinese.ChineseGrammaticalStructureTest) (33 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[50](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (107 ms)</li><li>edu.stanford.nlp.parser.metrics.TreeSpanScoringTest.testMislabeledSpans(edu.stanford.nlp.parser.metrics.TreeSpanScoringTest) (2 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[58](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (75 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[51](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (61 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[203](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (73 ms)</li><li>edu.stanford.nlp.process.PTBTokenizerTest.testPTBTokenizerGerman(edu.stanford.nlp.process.PTBTokenizerTest) (2 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[207](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (64 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[206](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (65 ms)</li><li>edu.stanford.nlp.semgraph.semgrex.SemgrexTest.testNamedNode(edu.stanford.nlp.semgraph.semgrex.SemgrexTest) (4 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[55](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (69 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[54](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (99 ms)</li><li>edu.stanford.nlp.trees.EnglishGrammaticalStructureTest.testBasicRelations(edu.stanford.nlp.trees.EnglishGrammaticalStructureTest) (994 ms)</li><li>edu.stanford.nlp.semgraph.semgrex.SemgrexTest.testWordMatch(edu.stanford.nlp.semgraph.semgrex.SemgrexTest) (13 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[23](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (60 ms)</li><li>edu.stanford.nlp.naturalli.RelationTripleSegmenterTest.testAcl(edu.stanford.nlp.naturalli.RelationTripleSegmenterTest) (47 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[24](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (98 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[59](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (125 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[20](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (57 ms)</li><li>edu.stanford.nlp.semgraph.SemanticGraphTest.testHasChildren(edu.stanford.nlp.semgraph.SemanticGraphTest) (99 ms)</li><li>edu.stanford.nlp.trees.TreeTest.testDeeperCopy(edu.stanford.nlp.trees.TreeTest) (1 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[70](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (105 ms)</li><li>edu.stanford.nlp.semgraph.semgrex.SemgrexTest.testNotEquals(edu.stanford.nlp.semgraph.semgrex.SemgrexTest) (3 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[73](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (93 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[74](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (107 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[78](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (103 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[225](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (83 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[226](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (97 ms)</li><li>edu.stanford.nlp.trees.international.pennchinese.CTBErrorCorrectingTreeNormalizerTest.testFixSplitElement(edu.stanford.nlp.trees.international.pennchinese.CTBErrorCorrectingTreeNormalizerTest) (12 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[28](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (68 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[77](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (96 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[27](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (72 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[229](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (94 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[85](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (100 ms)</li><li>edu.stanford.nlp.trees.TreebankLanguagePackTest.testBasicCategory(edu.stanford.nlp.trees.TreebankLanguagePackTest) (0 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[185](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (99 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[89](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (123 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[189](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (73 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[181](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (98 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[237](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (190 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[105](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (91 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[109](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (132 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[221](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (91 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[93](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (72 ms)</li><li>edu.stanford.nlp.semgraph.semgrex.SemgrexTest.testEqualsRelation(edu.stanford.nlp.semgraph.semgrex.SemgrexTest) (2 ms)</li><li>edu.stanford.nlp.semgraph.semgrex.SemgrexTest.testExactDepthRelations(edu.stanford.nlp.semgraph.semgrex.SemgrexTest) (18 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[97](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (90 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[174](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (70 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[178](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (103 ms)</li><li>edu.stanford.nlp.semgraph.SemanticGraphTest.testCommonAncestor(edu.stanford.nlp.semgraph.SemanticGraphTest) (235 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[249](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (73 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[12](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (188 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[116](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (108 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[170](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (102 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[210](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (63 ms)</li><li>edu.stanford.nlp.trees.EnglishGrammaticalStructureTest.testBasicRelationsWithCopulaAsHead(edu.stanford.nlp.trees.EnglishGrammaticalStructureTest) (182 ms)</li><li>edu.stanford.nlp.trees.international.pennchinese.UniversalChineseGrammaticalStructureTest.testBasicRelations(edu.stanford.nlp.trees.international.pennchinese.UniversalChineseGrammaticalStructureTest) (139 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[62](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (140 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[166](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (78 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[252](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (78 ms)</li><li>edu.stanford.nlp.semgraph.semgrex.SemgrexTest.testTwoDependencies(edu.stanford.nlp.semgraph.semgrex.SemgrexTest) (4 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[214](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (58 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[218](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (56 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[202](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (65 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[128](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (102 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[112](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (91 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[66](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (109 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[162](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (65 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[1](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (60 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[16](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (83 ms)</li><li>edu.stanford.nlp.semgraph.SemanticGraphTest.testGetPathToRoot(edu.stanford.nlp.semgraph.SemanticGraphTest) (115 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[197](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (69 ms)</li><li>edu.stanford.nlp.trees.QPTreeTransformerTest.testMoney(edu.stanford.nlp.trees.QPTreeTransformerTest) (1 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[193](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (75 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[35](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (91 ms)</li><li>edu.stanford.nlp.semgraph.SemanticGraphTest.testGetSiblings(edu.stanford.nlp.semgraph.SemanticGraphTest) (113 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[147](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (96 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[31](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (88 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[233](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (77 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[81](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (133 ms)</li><li>edu.stanford.nlp.semgraph.SemanticGraphTest.testShortestPath(edu.stanford.nlp.semgraph.SemanticGraphTest) (98 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[140](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (122 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[142](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (112 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[144](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (137 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[141](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (136 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[148](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (88 ms)</li><li>edu.stanford.nlp.trees.international.pennchinese.CTBErrorCorrectingTreeNormalizerTest.testAnotherSplit(edu.stanford.nlp.trees.international.pennchinese.CTBErrorCorrectingTreeNormalizerTest) (8 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[143](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (117 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[149](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (95 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[135](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (150 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[136](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (167 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[134](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (132 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[260](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (92 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[133](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (142 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[130](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (212 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[159](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (91 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[131](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (158 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[132](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (162 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[5](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (113 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[6](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (88 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[9](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (79 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[125](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (115 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[123](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (108 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[124](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (127 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[257](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (151 ms)</li><li>edu.stanford.nlp.semgraph.semgrex.SemgrexTest.testSimpleDependency(edu.stanford.nlp.semgraph.semgrex.SemgrexTest) (2 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[8](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (82 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[7](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (143 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[256](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (143 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[122](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (101 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[259](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (111 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[258](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (126 ms)</li><li>edu.stanford.nlp.trees.EnglishGrammaticalStructureTest.testCopyNodes(edu.stanford.nlp.trees.EnglishGrammaticalStructureTest) (12 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[121](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (117 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[120](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (105 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[246](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (88 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[158](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (89 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[244](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (89 ms)</li><li>edu.stanford.nlp.trees.EnglishGrammaticalStructureTest.testNonCollapsedRelations(edu.stanford.nlp.trees.EnglishGrammaticalStructureTest) (71 ms)</li><li>edu.stanford.nlp.trees.international.negra.NegraPennLanguagePackTest.testBasicCategory(edu.stanford.nlp.trees.international.negra.NegraPennLanguagePackTest) (11 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[157](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (93 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[245](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (94 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[152](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (89 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[151](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (98 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[153](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (84 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[150](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (113 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[243](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (60 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[156](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (96 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[155](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (98 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[240](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (83 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[137](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (145 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[241](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (72 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[242](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (80 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[154](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (84 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[138](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (147 ms)</li><li>edu.stanford.nlp.semgraph.semgrex.SemgrexTest.testNamedDependency(edu.stanford.nlp.semgraph.semgrex.SemgrexTest) (3 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[103](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (129 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[139](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (140 ms)</li><li>edu.stanford.nlp.parser.metrics.TreeSpanScoringTest.testMissingSpan(edu.stanford.nlp.parser.metrics.TreeSpanScoringTest) (2 ms)</li><li>edu.stanford.nlp.trees.international.pennchinese.CTBErrorCorrectingTreeNormalizerTest.testNormalDelete(edu.stanford.nlp.trees.international.pennchinese.CTBErrorCorrectingTreeNormalizerTest) (4 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[102](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (156 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[100](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (195 ms)</li><li>edu.stanford.nlp.semgraph.SemanticGraphTest.testTopologicalSort(edu.stanford.nlp.semgraph.SemanticGraphTest) (100 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[101](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (168 ms)</li><li>edu.stanford.nlp.trees.SemanticHeadFinderTest.testRegularSemanticHeadFinder(edu.stanford.nlp.trees.SemanticHeadFinderTest) (7 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[188](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (80 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[232](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (83 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[186](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (115 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[180](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (103 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[182](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (101 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[236](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (120 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[230](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (82 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[104](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (534 ms)</li><li>edu.stanford.nlp.trees.EnglishGrammaticalStructureTest.testCollapsedRelations(edu.stanford.nlp.trees.EnglishGrammaticalStructureTest) (300 ms)</li><li>edu.stanford.nlp.parser.shiftreduce.ReorderingOracleTest.testReorderIncorrectShiftResultingTree(edu.stanford.nlp.parser.shiftreduce.ReorderingOracleTest) (19 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[108](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (116 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[238](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (180 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[224](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (76 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[106](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (109 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[222](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (61 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[190](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (90 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[179](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (81 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[184](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (100 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[175](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (105 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[177](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (98 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[171](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (75 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[220](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (73 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[115](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (102 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[13](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (123 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[248](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (80 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[119](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (110 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[213](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (59 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[117](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (104 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[11](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (142 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[169](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (64 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[173](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (84 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[211](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (92 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[251](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (71 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[163](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (80 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[161](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (91 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[167](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (99 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[255](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (108 ms)</li><li>edu.stanford.nlp.parser.shiftreduce.ReorderingOracleTest.testReorderIncorrectShift(edu.stanford.nlp.parser.shiftreduce.ReorderingOracleTest) (10 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[215](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (51 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[127](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (98 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[4](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (68 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[19](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (79 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[253](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (84 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[165](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (156 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[2](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (54 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[17](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (88 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[219](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (83 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[217](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (56 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[15](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (100 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[129](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (112 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[0](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (135 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[201](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (59 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[111](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (101 ms)</li><li>edu.stanford.nlp.parser.shiftreduce.ShiftReduceParserTest.testCompoundUnaryTransitions(edu.stanford.nlp.parser.shiftreduce.ShiftReduceParserTest) (14 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[113](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (100 ms)</li><li>edu.stanford.nlp.trees.QPTreeTransformerTest.testMoneyOrMore(edu.stanford.nlp.trees.QPTreeTransformerTest) (3 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[198](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (65 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[194](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (70 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[30](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (76 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[34](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (77 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[192](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (80 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[36](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (79 ms)</li><li>edu.stanford.nlp.trees.TreeTest.testRemove(edu.stanford.nlp.trees.TreeTest) (1 ms)</li><li>edu.stanford.nlp.trees.international.pennchinese.CTBErrorCorrectingTreeNormalizerTest.testNothingLeftTree(edu.stanford.nlp.trees.international.pennchinese.CTBErrorCorrectingTreeNormalizerTest) (2 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[234](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (74 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[196](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (70 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[146](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (87 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[32](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (110 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[41](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (91 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[45](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (66 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[40](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (95 ms)</li><li>edu.stanford.nlp.dcoref.RuleBasedCorefMentionFinderTest.testFindTreeWithSmallestSpan(edu.stanford.nlp.dcoref.RuleBasedCorefMentionFinderTest) (33 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[37](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (98 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[44](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (66 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[38](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (116 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[52](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (64 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[53](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (67 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[56](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (95 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[57](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (114 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[205](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (60 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[209](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (58 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[204](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (125 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[48](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (59 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[208](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (67 ms)</li><li>edu.stanford.nlp.trees.EnglishGrammaticalStructureTest.testCCProcessedRelations(edu.stanford.nlp.trees.EnglishGrammaticalStructureTest) (422 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[49](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (66 ms)</li><li>edu.stanford.nlp.trees.TreeTest.testTreeIterator(edu.stanford.nlp.trees.TreeTest) (1 ms)</li><li>edu.stanford.nlp.parser.metrics.TreeSpanScoringTest.testTagErrors(edu.stanford.nlp.parser.metrics.TreeSpanScoringTest) (88 ms)</li><li>edu.stanford.nlp.semgraph.semgrex.SemgrexTest.testInitialConditions(edu.stanford.nlp.semgraph.semgrex.SemgrexTest) (2 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[22](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (90 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[21](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (125 ms)</li><li>edu.stanford.nlp.parser.shiftreduce.OracleTest.testBuildParentMap(edu.stanford.nlp.parser.shiftreduce.OracleTest) (1 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[71](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (67 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[76](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (103 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[72](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (76 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[75](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (103 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[79](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (131 ms)</li><li>edu.stanford.nlp.semgraph.semgrex.SemgrexTest.testLemma(edu.stanford.nlp.semgraph.semgrex.SemgrexTest) (13 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[29](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (57 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[228](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (70 ms)</li><li>edu.stanford.nlp.semgraph.semgrex.SemgrexPatternTest.testSiblingPatterns(edu.stanford.nlp.semgraph.semgrex.SemgrexPatternTest) (6 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[227](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (61 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[26](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (86 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[25](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (81 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[187](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (96 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[87](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (83 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[183](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (103 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[83](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (103 ms)</li><li>edu.stanford.nlp.semgraph.SemanticGraphTest.testGetCommonAncestor(edu.stanford.nlp.semgraph.SemanticGraphTest) (134 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[231](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (192 ms)</li><li>edu.stanford.nlp.semgraph.semgrex.SemgrexTest.testComplicatedGraph(edu.stanford.nlp.semgraph.semgrex.SemgrexTest) (87 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[107](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (120 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[239](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (74 ms)</li><li>edu.stanford.nlp.parser.shiftreduce.ReorderingOracleTest.testReorderIncorrectBinaryTransition(edu.stanford.nlp.parser.shiftreduce.ReorderingOracleTest) (11 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[223](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (74 ms)</li><li>edu.stanford.nlp.parser.metrics.TreeSpanScoringTest.testNoErrors(edu.stanford.nlp.parser.metrics.TreeSpanScoringTest) (2 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[176](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (89 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[95](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (78 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[172](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (145 ms)</li><li>edu.stanford.nlp.semgraph.semgrex.SemgrexTest.testNamedGovernor(edu.stanford.nlp.semgraph.semgrex.SemgrexTest) (3 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[247](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (91 ms)</li><li>edu.stanford.nlp.parser.metrics.TreeSpanScoringTest.testExtraSpan(edu.stanford.nlp.parser.metrics.TreeSpanScoringTest) (2 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[118](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (105 ms)</li><li>edu.stanford.nlp.semgraph.SemanticGraphTest.testIsAncestor(edu.stanford.nlp.semgraph.SemanticGraphTest) (101 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[212](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (57 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[10](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (92 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[168](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (110 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[99](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (92 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[250](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (87 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[164](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (163 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[60](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (140 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[160](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (86 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[254](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (109 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[64](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (87 ms)</li><li>edu.stanford.nlp.parser.lexparser.SpanishUnknownWordModelTest.testGetSignature(edu.stanford.nlp.parser.lexparser.SpanishUnknownWordModelTest) (3 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[68](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (73 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[126](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (130 ms)</li><li>edu.stanford.nlp.parser.shiftreduce.ShiftReduceParserTest.testSeparators(edu.stanford.nlp.parser.shiftreduce.ShiftReduceParserTest) (2 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[18](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (93 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[3](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (100 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[14](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (70 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[216](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (52 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[114](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (100 ms)</li><li>edu.stanford.nlp.parser.shiftreduce.ShiftReduceParserTest.testUnaryTransitions(edu.stanford.nlp.parser.shiftreduce.ShiftReduceParserTest) (14 ms)</li><li>edu.stanford.nlp.semgraph.semgrex.SemgrexTest.testNamedRelation(edu.stanford.nlp.semgraph.semgrex.SemgrexTest) (2 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[200](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (76 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[199](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (83 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[191](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (78 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[110](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (88 ms)</li><li>edu.stanford.nlp.parser.shiftreduce.OracleTest.testEndToEndSingleUnaries(edu.stanford.nlp.parser.shiftreduce.OracleTest) (23 ms)</li><li>edu.stanford.nlp.naturalli.OpenIETest.testCComp(edu.stanford.nlp.naturalli.OpenIETest) (160 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[33](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (61 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[235](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (121 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[145](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (117 ms)</li><li>edu.stanford.nlp.semgraph.semgrex.SemgrexPatternTest.testFind(edu.stanford.nlp.semgraph.semgrex.SemgrexPatternTest) (34 ms)</li><li>edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest.doTest[195](edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructureTest) (61 ms)</li><li>edu.stanford.nlp.trees.EnglishGrammaticalStructureTest.testMoreBasicRelations(edu.stanford.nlp.trees.EnglishGrammaticalStructureTest) (137 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 1.4.4-SNAPSHOT
+
+</body>
+</html>
