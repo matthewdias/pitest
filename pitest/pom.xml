@@ -40,6 +40,7 @@
 
 			<plugin>
 				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.22.0</version>
 				<configuration>
 					<testNGArtifactName>none:none</testNGArtifactName>
 
@@ -171,6 +172,13 @@
 		</resources>
 	</build>
 
+	<repositories>
+		<repository>
+			<id>spek-dev</id>
+			<url>https://dl.bintray.com/spekframework/spek-dev</url>
+		</repository>
+	</repositories>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.ow2.asm</groupId>
@@ -249,6 +257,47 @@
             <version>1.4.8</version>
             <scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.jetbrains.kotlin</groupId>
+			<artifactId>kotlin-stdlib</artifactId>
+			<version>${kotlin.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.spekframework.spek2</groupId>
+			<artifactId>spek-dsl-jvm</artifactId>
+			<version>2.0.0-alpha.2</version>
+			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.jetbrains.kotlin</groupId>
+					<artifactId>*</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.spekframework.spek2</groupId>
+			<artifactId>spek-runner-junit5</artifactId>
+			<version>2.0.0-alpha.2</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.jetbrains.kotlin</groupId>
+					<artifactId>*</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.junit.platform</groupId>
+					<artifactId>*</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.jetbrains.kotlin</groupId>
+			<artifactId>kotlin-reflect</artifactId>
+			<version>${kotlin.version}</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
+
+
 
 </project>
